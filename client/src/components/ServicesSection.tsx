@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { 
   Gavel, Calculator, FileText, FileQuestion, Home, HardHat, 
-  ChevronRight, CheckCircle2, ArrowRight, CircleDot
+  ChevronRight, CheckCircle2, ArrowRight, CircleDot, 
+  Clock, ShieldCheck, HeartHandshake, BarChart, Globe, BadgeCheck
 } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 import { Link } from "wouter";
 
-// Updated service data with additional styling parameters and links to dedicated pages
+// Updated service data with additional styling parameters, badges and links to dedicated pages
 const servicesData = [
   {
     icon: <Gavel className="w-6 h-6" />,
@@ -15,7 +16,8 @@ const servicesData = [
     delay: 0.1,
     direction: "up" as const,
     link: "/pravni-sluzby",
-    features: ["Smluvní dokumentace", "Právní audit", "Obchodní spory"]
+    features: ["Smluvní dokumentace", "Právní audit", "Obchodní spory"],
+    badge: "Expertní poradenství"
   },
   {
     icon: <Calculator className="w-6 h-6" />,
@@ -24,7 +26,8 @@ const servicesData = [
     delay: 0.2,
     direction: "up" as const,
     link: "/sprava-ucetnictvi",
-    features: ["Vedení účetnictví", "Mzdová agenda", "Daňová přiznání"]
+    features: ["Vedení účetnictví", "Mzdová agenda", "Daňová přiznání"],
+    badge: "Komplexní služby"
   },
   {
     icon: <FileText className="w-6 h-6" />,
@@ -33,7 +36,8 @@ const servicesData = [
     delay: 0.3,
     direction: "up" as const,
     link: "/danove-poradenstvi",
-    features: ["Daňová optimalizace", "Zastupování při kontrole", "DPH poradenství"]
+    features: ["Daňová optimalizace", "Zastupování při kontrole", "DPH poradenství"],
+    badge: "Daňové úspory"
   },
   {
     icon: <FileQuestion className="w-6 h-6" />,
@@ -42,7 +46,8 @@ const servicesData = [
     delay: 0.4,
     direction: "up" as const,
     link: "/likvidace-firem",
-    features: ["Likvidace s.r.o.", "Likvidace a.s.", "Likvidace závazků"]
+    features: ["Likvidace s.r.o.", "Likvidace a.s.", "Likvidace závazků"],
+    badge: "Bezstarostný proces"
   },
   {
     icon: <Home className="w-6 h-6" />,
@@ -51,7 +56,8 @@ const servicesData = [
     delay: 0.5,
     direction: "up" as const,
     link: "/realitni-agentura",
-    features: ["Prodej nemovitostí", "Pronájem prostor", "Správa nemovitostí"]
+    features: ["Prodej nemovitostí", "Pronájem prostor", "Správa nemovitostí"],
+    badge: "Výhodné podmínky"
   },
   {
     icon: <HardHat className="w-6 h-6" />,
@@ -60,7 +66,8 @@ const servicesData = [
     delay: 0.6,
     direction: "up" as const,
     link: "/stavebni-cinnost",
-    features: ["Rekonstrukce", "Nové stavby", "Stavební dozor"]
+    features: ["Rekonstrukce", "Nové stavby", "Stavební dozor"],
+    badge: "Kvalitní provedení"
   },
 ];
 
@@ -115,12 +122,28 @@ export function ServicesSection() {
                 Profesionální tým
               </span>
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-gray-300 backdrop-blur-sm border border-white/10">
-                <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-red-500" />
+                <ShieldCheck className="w-3.5 h-3.5 mr-1.5 text-red-500" />
+                Transparentní služby
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-gray-300 backdrop-blur-sm border border-white/10">
+                <HeartHandshake className="w-3.5 h-3.5 mr-1.5 text-red-500" />
                 Individuální přístup
               </span>
               <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-gray-300 backdrop-blur-sm border border-white/10">
-                <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-red-500" />
+                <Clock className="w-3.5 h-3.5 mr-1.5 text-red-500" />
                 Dlouholeté zkušenosti
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-gray-300 backdrop-blur-sm border border-white/10">
+                <BarChart className="w-3.5 h-3.5 mr-1.5 text-red-500" />
+                Daňová optimalizace
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-gray-300 backdrop-blur-sm border border-white/10">
+                <Globe className="w-3.5 h-3.5 mr-1.5 text-red-500" />
+                Mezinárodní transakce
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-gray-300 backdrop-blur-sm border border-white/10">
+                <BadgeCheck className="w-3.5 h-3.5 mr-1.5 text-red-500" />
+                Certifikovaní poradci
               </span>
             </div>
           </ScrollReveal>
@@ -170,6 +193,15 @@ export function ServicesSection() {
                           </motion.div>
                         </div>
                       </div>
+                      
+                      {/* Badge */}
+                      {service.badge && (
+                        <div className="absolute right-4 top-4">
+                          <div className="px-2.5 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-red-600/20 to-red-700/20 text-red-400 border border-red-600/20">
+                            {service.badge}
+                          </div>
+                        </div>
+                      )}
                       
                       {/* Title and description */}
                       <h3 className="text-xl font-bold mb-3">{service.title}</h3>
