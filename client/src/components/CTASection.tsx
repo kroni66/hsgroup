@@ -44,13 +44,13 @@ export function CTASection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 font-['Montserrat'] gold-gradient">
-            „Kdo má strach, nevyhrává! Investujte s odvahou a sledujte, jak rostou vaše finance."
+            „Optimalizujte své daně legálně a efektivně. Naši daňoví poradci vám ušetří čas i peníze."
           </h2>
           <button
             onClick={handleScrollToContact}
             className="inline-block bg-primary text-[#0A0A0A] py-3 px-8 rounded-sm font-semibold hover:bg-opacity-90 transition-all duration-300 mt-6"
           >
-            Začněte investovat
+            Domluvit konzultaci
           </button>
         </motion.div>
       </div>
