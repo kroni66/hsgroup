@@ -62,7 +62,7 @@ export function Hero() {
 
         {/* Overlay layer with dynamic opacity */}
         <ParallaxBannerLayer speed={0}>
-          <div className="absolute inset-0 bg-black bg-opacity-60" />
+          <div className="absolute inset-0 bg-black bg-opacity-70" />
         </ParallaxBannerLayer>
         
         {/* Floating geometric shapes */}
@@ -134,18 +134,27 @@ export function Hero() {
               }}
             >
               <motion.h1 
-                className="text-4xl md:text-6xl font-bold mb-6 font-['Montserrat'] leading-tight"
+                className="text-4xl md:text-6xl font-bold mb-2 font-['Montserrat'] leading-tight"
                 variants={childVariants}
               >
-                <span className="text-primary">HS Group</span> – Vaše komplexní řešení v oblasti právních, daňových a podnikatelských služeb
+                <span className="text-primary">HS Group</span>
               </motion.h1>
               
-              <motion.p 
-                className="text-xl md:text-2xl mb-8 font-['Open_Sans']"
+              <motion.h2
+                className="text-xl md:text-3xl mb-6 font-['Montserrat'] text-gray-300"
                 variants={childVariants}
               >
-                Profesionalita, důvěra a komplexní přístup – s námi budete vždy připraveni na každou výzvu a vaše podnikání bude na pevných základech.
-              </motion.p>
+                Vaše komplexní řešení v oblasti právních, daňových a podnikatelských služeb
+              </motion.h2>
+              
+              <motion.blockquote 
+                className="border-l-4 border-primary pl-4 mb-8"
+                variants={childVariants}
+              >
+                <p className="text-xl md:text-2xl italic font-['Open_Sans'] leading-relaxed">
+                  "Profesionalita, důvěra a komplexní přístup – s námi budete vždy připraveni na každou výzvu a vaše podnikání bude na pevných základech."
+                </p>
+              </motion.blockquote>
               
               <motion.div 
                 className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
