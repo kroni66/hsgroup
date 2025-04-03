@@ -31,38 +31,38 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-bold mb-6 font-['Montserrat']">Rychlé odkazy</h4>
+            <h4 className="text-lg font-bold mb-6 font-['Montserrat']">Naše služby</h4>
             <ul className="space-y-3 font-['Open_Sans']">
-              <li>
-                <button 
-                  onClick={() => handleScrollTo("hero")} 
-                  className="text-white hover:text-primary transition-colors duration-300"
-                >
-                  Domů
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => handleScrollTo("about")} 
-                  className="text-white hover:text-primary transition-colors duration-300"
-                >
-                  O nás
-                </button>
-              </li>
               <li>
                 <button 
                   onClick={() => handleScrollTo("services")} 
                   className="text-white hover:text-primary transition-colors duration-300"
                 >
-                  Služby
+                  Právní služby HS
                 </button>
               </li>
               <li>
                 <button 
-                  onClick={() => handleScrollTo("portfolio")} 
+                  onClick={() => handleScrollTo("accounting")} 
                   className="text-white hover:text-primary transition-colors duration-300"
                 >
-                  Portfolio
+                  Správa účetnictví HS
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleScrollTo("tax")} 
+                  className="text-white hover:text-primary transition-colors duration-300"
+                >
+                  Daňové poradenství HS
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => handleScrollTo("liquidation")} 
+                  className="text-white hover:text-primary transition-colors duration-300"
+                >
+                  Likvidace firem HS
                 </button>
               </li>
               <li>
@@ -77,32 +77,47 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-bold mb-6 font-['Montserrat']">Služby</h4>
+            <h4 className="text-lg font-bold mb-6 font-['Montserrat']">Další služby</h4>
             <ul className="space-y-3 font-['Open_Sans']">
               <li>
-                <a href="#" className="text-white hover:text-primary transition-colors duration-300">
-                  Nákup nemovitostí
-                </a>
+                <button 
+                  onClick={() => handleScrollTo("realestate")} 
+                  className="text-white hover:text-primary transition-colors duration-300"
+                >
+                  Realitní agentura HS
+                </button>
               </li>
               <li>
-                <a href="#" className="text-white hover:text-primary transition-colors duration-300">
-                  Investiční poradenství
-                </a>
+                <button 
+                  onClick={() => handleScrollTo("construction")} 
+                  className="text-white hover:text-primary transition-colors duration-300"
+                >
+                  Stavební činnost HS
+                </button>
               </li>
               <li>
-                <a href="#" className="text-white hover:text-primary transition-colors duration-300">
-                  Správa nemovitostí
-                </a>
+                <button 
+                  onClick={() => handleScrollTo("about")} 
+                  className="text-white hover:text-primary transition-colors duration-300"
+                >
+                  O společnosti
+                </button>
               </li>
               <li>
-                <a href="#" className="text-white hover:text-primary transition-colors duration-300">
-                  Development
-                </a>
+                <button 
+                  onClick={() => handleScrollTo("portfolio")} 
+                  className="text-white hover:text-primary transition-colors duration-300"
+                >
+                  Portfolio projektů
+                </button>
               </li>
               <li>
-                <a href="#" className="text-white hover:text-primary transition-colors duration-300">
-                  Financování
-                </a>
+                <button 
+                  onClick={() => handleScrollTo("team")} 
+                  className="text-white hover:text-primary transition-colors duration-300"
+                >
+                  Náš tým
+                </button>
               </li>
             </ul>
           </div>

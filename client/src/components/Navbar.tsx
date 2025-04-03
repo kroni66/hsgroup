@@ -66,16 +66,6 @@ export function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6">
           <a 
-            href="#about" 
-            className="text-white hover:text-primary transition-colors duration-300"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavLinkClick("about");
-            }}
-          >
-            O nás
-          </a>
-          <a 
             href="#services" 
             className="text-white hover:text-primary transition-colors duration-300"
             onClick={(e) => {
@@ -83,37 +73,57 @@ export function Navbar() {
               handleNavLinkClick("services");
             }}
           >
-            Služby
+            Právní služby HS
           </a>
           <a 
-            href="#portfolio" 
+            href="#accounting" 
             className="text-white hover:text-primary transition-colors duration-300"
             onClick={(e) => {
               e.preventDefault();
-              handleNavLinkClick("portfolio");
+              handleNavLinkClick("accounting");
             }}
           >
-            Portfolio
+            Správa účetnictví HS
           </a>
           <a 
-            href="#history" 
+            href="#tax" 
             className="text-white hover:text-primary transition-colors duration-300"
             onClick={(e) => {
               e.preventDefault();
-              handleNavLinkClick("history");
+              handleNavLinkClick("tax");
             }}
           >
-            Historie
+            Daňové poradenství HS
           </a>
           <a 
-            href="#team" 
+            href="#liquidation" 
             className="text-white hover:text-primary transition-colors duration-300"
             onClick={(e) => {
               e.preventDefault();
-              handleNavLinkClick("team");
+              handleNavLinkClick("liquidation");
             }}
           >
-            Tým
+            Likvidace firem HS
+          </a>
+          <a 
+            href="#realestate" 
+            className="text-white hover:text-primary transition-colors duration-300"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavLinkClick("realestate");
+            }}
+          >
+            Realitní agentura HS
+          </a>
+          <a 
+            href="#construction" 
+            className="text-white hover:text-primary transition-colors duration-300"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavLinkClick("construction");
+            }}
+          >
+            Stavební činnost HS
           </a>
           <a 
             href="#contact" 
@@ -145,16 +155,6 @@ export function Navbar() {
           >
             <div className="flex flex-col space-y-4">
               <a 
-                href="#about" 
-                className="text-white hover:text-primary transition-colors duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavLinkClick("about");
-                }}
-              >
-                O nás
-              </a>
-              <a 
                 href="#services" 
                 className="text-white hover:text-primary transition-colors duration-300"
                 onClick={(e) => {
@@ -162,37 +162,57 @@ export function Navbar() {
                   handleNavLinkClick("services");
                 }}
               >
-                Služby
+                Právní služby HS
               </a>
               <a 
-                href="#portfolio" 
+                href="#accounting" 
                 className="text-white hover:text-primary transition-colors duration-300"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleNavLinkClick("portfolio");
+                  handleNavLinkClick("accounting");
                 }}
               >
-                Portfolio
+                Správa účetnictví HS
               </a>
               <a 
-                href="#history" 
+                href="#tax" 
                 className="text-white hover:text-primary transition-colors duration-300"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleNavLinkClick("history");
+                  handleNavLinkClick("tax");
                 }}
               >
-                Historie
+                Daňové poradenství HS
               </a>
               <a 
-                href="#team" 
+                href="#liquidation" 
                 className="text-white hover:text-primary transition-colors duration-300"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleNavLinkClick("team");
+                  handleNavLinkClick("liquidation");
                 }}
               >
-                Tým
+                Likvidace firem HS
+              </a>
+              <a 
+                href="#realestate" 
+                className="text-white hover:text-primary transition-colors duration-300"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavLinkClick("realestate");
+                }}
+              >
+                Realitní agentura HS
+              </a>
+              <a 
+                href="#construction" 
+                className="text-white hover:text-primary transition-colors duration-300"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavLinkClick("construction");
+                }}
+              >
+                Stavební činnost HS
               </a>
               <a 
                 href="#contact" 
