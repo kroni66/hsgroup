@@ -111,7 +111,7 @@ export function ServicesSection() {
             </p>
             <blockquote className="max-w-2xl mx-auto border-l-4 border-primary pl-4 text-left my-8">
               <p className="text-xl italic font-['Open_Sans'] leading-relaxed">
-                "Kdo má strach, nevyhrává! Investujte s odvahou a sledujte, jak rostou vaše finance."
+                "Poskytujeme profesionální poradenství a služby v oblasti daní, účetnictví a práva. S naším týmem odborníků získáte spolehlivé řešení pro váš byznys."
               </p>
             </blockquote>
           </ScrollReveal>
