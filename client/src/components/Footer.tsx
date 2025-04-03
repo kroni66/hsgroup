@@ -28,11 +28,11 @@ export function Footer() {
                 <path d="M36 18 C36 18, 44 18, 44 22 C44 26, 36 26, 36 26" fill="none" stroke="#ff0000" strokeWidth="1.5" />
               </svg>
               <span className="text-2xl font-bold text-white font-['Montserrat']">
-                <span className="text-primary">HS</span>-GROUP
+                <span className="text-primary">HS</span> Group
               </span>
             </Link>
             <p className="font-['Open_Sans'] mb-6">
-              Profesionální služby v oblasti realit a investic do nemovitostí s důrazem na kvalitu a spokojenost klientů.
+              Profesionální služby v oblasti právního poradenství, daňového poradenství, správy účetnictví, likvidace firem, realitní činnosti a stavební činnosti.
             </p>
           </div>
           
@@ -194,7 +194,7 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-bold mb-6 font-['Montserrat']">Newsletter</h4>
             <p className="font-['Open_Sans'] mb-4">
-              Přihlaste se k odběru našeho newsletteru a získejte nejnovější informace o investičních příležitostech.
+              Přihlaste se k odběru našeho newsletteru a získejte nejnovější informace a tipy z oblasti právních, daňových a podnikatelských služeb.
             </p>
             <form className="flex">
               <input 
@@ -213,7 +213,7 @@ export function Footer() {
         </div>
         
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="font-['Open_Sans'] mb-4 md:mb-0">&copy; 2024 HS-GROUP. Všechna práva vyhrazena.</p>
+          <p className="font-['Open_Sans'] mb-4 md:mb-0">&copy; 2024 HS Group. Všechna práva vyhrazena.</p>
           <div className="flex space-x-4">
             <Link href="/pravni-sluzby" className="text-white hover:text-primary transition-colors duration-300">
               Zásady ochrany osobních údajů

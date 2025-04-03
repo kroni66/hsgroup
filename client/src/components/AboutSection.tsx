@@ -21,13 +21,13 @@ export function AboutSection() {
             duration={0.8}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 font-['Montserrat']">
-              <span className="text-primary">O</span> společnosti HS-GROUP
+              <span className="text-primary">O</span> nás
             </h2>
             <p className="text-lg mb-6 font-['Open_Sans'] leading-relaxed">
-              HS-GROUP se specializuje na vyhledávání lukrativních investičních příležitostí v oblasti nemovitostí pro své klienty. Naším cílem je maximalizovat návratnost investic a poskytovat komplexní poradenství v realitním sektoru.
+              HS Group je renomovaná firma, která se specializuje na poskytování komplexních služeb v oblasti právního poradenství, daňového poradenství, správy účetnictví, likvidace firem, realitní činnosti a stavební činnosti. Naším cílem je pomoci vám efektivně řídit vaše podnikání, optimalizovat náklady a minimalizovat rizika.
             </p>
             <p className="text-lg mb-8 font-['Open_Sans'] leading-relaxed">
-              Od roku 2016 jsme vybudovali rozsáhlé portfolio nemovitostí různého typu a pomohli stovkám klientů realizovat jejich investiční cíle. Náš zkušený tým odborníků je zárukou profesionálního přístupu a individuálního řešení pro každého klienta.
+              Naše služby jsou postaveny na individuálním přístupu, odbornosti a dlouholetých zkušenostech našich specialistů. Ať už se jedná o právní poradenství při uzavírání smluv, optimalizaci daňové zátěže, správu účetnictví, nebo efektivní likvidaci firmy, jsme tu, abychom vám poskytli odbornou podporu a pomohli vám dosáhnout vašich cílů.
             </p>
             <button
               onClick={handleScrollToContact}

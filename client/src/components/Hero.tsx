@@ -137,14 +137,14 @@ export function Hero() {
                 className="text-4xl md:text-6xl font-bold mb-6 font-['Montserrat'] leading-tight"
                 variants={childVariants}
               >
-                <span className="text-primary">Investujte</span> do budoucnosti s profesionály v oblasti nemovitostí
+                <span className="text-primary">HS Group</span> – Vaše komplexní řešení v oblasti právních, daňových a podnikatelských služeb
               </motion.h1>
               
               <motion.p 
                 className="text-xl md:text-2xl mb-8 font-['Open_Sans']"
                 variants={childVariants}
               >
-                Objevte nové možnosti a investujte s odvahou do nemovitostí s námi.
+                Profesionalita, důvěra a komplexní přístup – s námi budete vždy připraveni na každou výzvu a vaše podnikání bude na pevných základech.
               </motion.p>
               
               <motion.div 

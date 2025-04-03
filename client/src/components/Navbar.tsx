@@ -63,7 +63,7 @@ export function Navbar() {
             <path d="M36 18 C36 18, 44 18, 44 22 C44 26, 36 26, 36 26" fill="none" stroke="#ff0000" strokeWidth="1.5" />
           </svg>
           <span className="text-2xl font-bold text-white font-['Montserrat']">
-            <span className="text-primary">HS</span>-GROUP
+            <span className="text-primary">HS</span> Group
           </span>
         </Link>
 
