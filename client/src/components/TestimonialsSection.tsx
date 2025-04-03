@@ -4,28 +4,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 
-// Updated testimonials data
+// Client testimonials data
 const testimonialsData = [
   {
-    quote: "Spolupráce s HS-GROUP předčila všechna má očekávání. Jejich profesionální přístup, transparentnost a odborné znalosti mi pomohly najít ideální řešení pro moje daňové povinnosti. Díky jejich expertíze jsem se vyhnul mnoha potenciálním problémům.",
-    author: "Petr Kovář",
-    role: "Jednatel společnosti",
+    quote: "Spolupráce s HS-GROUP předčila všechna má očekávání. Jejich profesionální přístup k daňovému poradenství, transparentnost a odborné znalosti mi pomohly optimalizovat daňové náklady naší společnosti. Díky jejich expertíze jsme dosáhli významných úspor.",
+    author: "Ing. Jan Novák",
+    role: "Finanční ředitel",
     rating: 5,
-    company: "Tech Solutions s.r.o."
+    company: "Stavební firma Novák s.r.o."
   },
   {
-    quote: "Jako začínající podnikatel jsem potřeboval spolehlivého daňového poradce. HS-GROUP mi poskytla kompletní podporu, od vedení účetnictví až po daňové poradenství. Jejich služby byly neocenitelné a díky nim jsem mohl růst s jistotou a klidem.",
-    author: "Jana Nováková",
+    quote: "Jako majitelka několika restaurací jsem hledala spolehlivého partnera pro komplexní účetní a daňové služby. HS-GROUP mi poskytuje profesionální služby již třetím rokem. Oceňuji zejména jejich proaktivní přístup a vždy aktuální informace o všech legislativních změnách.",
+    author: "Mgr. Karolína Dvořáková",
     role: "Majitelka",
     rating: 5,
-    company: "Kavárna Pohoda"
+    company: "Restaurant Group Praha"
   },
   {
-    quote: "Již třetím rokem využívám služeb HS-GROUP pro správu svého podnikání. Jejich efektivita, spolehlivost a proaktivní přístup mi umožňují soustředit se na své podnikatelské aktivity s vědomím, že moje daňové záležitosti jsou v dobrých rukou.",
-    author: "Tomáš Černý",
-    role: "Generální ředitel",
+    quote: "Při zakládání stavební společnosti jsem potřeboval komplexní právní a daňové poradenství. HS-GROUP mi poskytla vynikající služby, které zahrnují vše od založení firmy až po průběžné daňové konzultace. Jejich tým odborníků vždy reaguje promptně a řeší všechny záležitosti profesionálně.",
+    author: "Bc. Martin Svoboda",
+    role: "Jednatel",
     rating: 5,
-    company: "Stavby Moravia a.s."
+    company: "Svoboda Construction s.r.o."
   }
 ];
 
@@ -126,14 +126,14 @@ export function TestimonialsSection() {
                           {/* Rating */}
                           <div className="flex justify-center md:justify-start mb-6">
                             {[...Array(testimonialsData[currentIndex].rating)].map((_, i) => (
-                              <Star key={i} className="w-5 h-5 fill-red-500 text-red-500" />
+                              <Star key={i} className="w-5 h-5 fill-red-500 text-red-500 mr-1" />
                             ))}
                           </div>
                           
                           {/* Quote */}
                           <blockquote>
                             <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-8 text-center md:text-left">
-                              {testimonialsData[currentIndex].quote}
+                              "{testimonialsData[currentIndex].quote}"
                             </p>
                             
                             {/* Author info */}
@@ -145,7 +145,7 @@ export function TestimonialsSection() {
                               </div>
                               
                               {/* Company logo placeholder - could be replaced with actual logos */}
-                              <div className="w-16 h-16 rounded-md border border-gray-800 flex items-center justify-center bg-black/50">
+                              <div className="hidden md:flex w-16 h-16 rounded-md border border-gray-800 items-center justify-center bg-black/50">
                                 <div className="text-xs text-gray-500 text-center">Logo</div>
                               </div>
                             </footer>
