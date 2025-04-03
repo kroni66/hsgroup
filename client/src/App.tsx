@@ -12,6 +12,7 @@ import RealEstateServices from "@/pages/RealEstateServices";
 import ConstructionServices from "@/pages/ConstructionServices";
 import Contact from "@/pages/Contact";
 import { ParallaxProvider } from "react-scroll-parallax";
+import { Preloader } from "@/components/Preloader";
 
 function Router() {
   return (
@@ -34,6 +35,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ParallaxProvider>
+        <Preloader />
         <Router />
         <Toaster />
       </ParallaxProvider>
