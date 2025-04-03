@@ -1,123 +1,196 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote } from "lucide-react";
+import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { ScrollReveal } from "./ScrollReveal";
 
-// Testimonials data
+// Updated testimonials data
 const testimonialsData = [
   {
-    quote: "Spolupráce s HS-GROUP předčila všechna má očekávání. Jejich profesionální přístup, transparentnost a odborné znalosti mi pomohly najít ideální investiční příležitost, která generuje stabilní pasivní příjem. Díky jejich expertíze jsem se vyhnul mnoha potenciálním problémům a maximalizoval návratnost své investice.",
+    quote: "Spolupráce s HS-GROUP předčila všechna má očekávání. Jejich profesionální přístup, transparentnost a odborné znalosti mi pomohly najít ideální řešení pro moje daňové povinnosti. Díky jejich expertíze jsem se vyhnul mnoha potenciálním problémům.",
     author: "Petr Kovář",
-    role: "Investor"
+    role: "Jednatel společnosti",
+    rating: 5,
+    company: "Tech Solutions s.r.o."
   },
   {
-    quote: "Jako začínající investor v oblasti nemovitostí jsem potřeboval spolehlivého partnera. HS-GROUP mi poskytla kompletní podporu, od výběru vhodné nemovitosti až po zajištění financování. Jejich poradenství bylo neocenitelné a díky nim jsem mohl uskutečnit svou první investici s jistotou a klidem.",
+    quote: "Jako začínající podnikatel jsem potřeboval spolehlivého daňového poradce. HS-GROUP mi poskytla kompletní podporu, od vedení účetnictví až po daňové poradenství. Jejich služby byly neocenitelné a díky nim jsem mohl růst s jistotou a klidem.",
     author: "Jana Nováková",
-    role: "Začínající investor"
+    role: "Majitelka",
+    rating: 5,
+    company: "Kavárna Pohoda"
   },
   {
-    quote: "Již třetím rokem využívám služeb HS-GROUP pro správu svého nemovitostního portfolia. Jejich efektivita, spolehlivost a proaktivní přístup mi umožňují soustředit se na další podnikatelské aktivity s vědomím, že moje investice jsou v dobrých rukou a přinášejí maximální možný výnos.",
+    quote: "Již třetím rokem využívám služeb HS-GROUP pro správu svého podnikání. Jejich efektivita, spolehlivost a proaktivní přístup mi umožňují soustředit se na své podnikatelské aktivity s vědomím, že moje daňové záležitosti jsou v dobrých rukou.",
     author: "Tomáš Černý",
-    role: "Podnikatel"
+    role: "Generální ředitel",
+    rating: 5,
+    company: "Stavby Moravia a.s."
   }
 ];
 
 export function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const { ref, inView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.3,
   });
 
-  const handleDotClick = (index: number) => {
+  // Auto slide functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === testimonialsData.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 8000);
+    
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  // Pause auto play when user interacts
+  const handleNavigation = (index: number) => {
+    setIsAutoPlaying(false);
     setCurrentIndex(index);
+    
+    // Resume auto play after 15 seconds of inactivity
+    const timer = setTimeout(() => setIsAutoPlaying(true), 15000);
+    return () => clearTimeout(timer);
   };
 
-  // Animation variants
-  const headerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.6
-      }
-    }
+  const nextTestimonial = () => {
+    handleNavigation(currentIndex === testimonialsData.length - 1 ? 0 : currentIndex + 1);
   };
 
-  const testimonialVariants = {
-    initial: { opacity: 0, y: 30 },
-    animate: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.6
-      }
-    },
-    exit: { 
-      opacity: 0,
-      y: -30,
-      transition: {
-        duration: 0.4
-      }
-    }
+  const prevTestimonial = () => {
+    handleNavigation(currentIndex === 0 ? testimonialsData.length - 1 : currentIndex - 1);
   };
 
   return (
-    <section className="py-20 bg-[#0A0A0A]">
-      <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          className="text-center mb-16"
-          variants={headerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-['Montserrat']">
-            <span className="text-primary">Reference</span> našich klientů
-          </h2>
-          <p className="text-lg max-w-3xl mx-auto font-['Open_Sans']">
-            Co o nás říkají naši spokojení klienti
-          </p>
-        </motion.div>
+    <section className="py-20 bg-gradient-to-b from-black to-[#0A0A0A] relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-32 -right-32 w-64 h-64 bg-red-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 -left-32 w-64 h-64 bg-red-500/5 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <ScrollReveal>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <span className="text-red-500">Reference</span> našich klientů
+            </h2>
+            <p className="text-lg max-w-3xl mx-auto text-gray-300">
+              Co o nás říkají firmy, se kterými spolupracujeme
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="max-w-5xl mx-auto">
-          <div className="testimonial-slider relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                className="text-center bg-[#121212] p-8 rounded-md shadow-lg"
-                variants={testimonialVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-              >
-                <div className="text-primary text-4xl mb-6">
-                  <Quote />
-                </div>
-                <p className="text-xl mb-8 font-['Open_Sans'] italic leading-relaxed">
-                  "{testimonialsData[currentIndex].quote}"
-                </p>
-                <div>
-                  <p className="font-bold text-xl mb-1 font-['Montserrat']">{testimonialsData[currentIndex].author}</p>
-                  <p className="text-primary">{testimonialsData[currentIndex].role}</p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Testimonial navigation */}
-            <div className="flex justify-center mt-8">
-              {testimonialsData.map((_, index) => (
-                <button
-                  key={index}
-                  className={`w-3 h-3 rounded-full mx-1 transition-colors duration-300 ${
-                    index === currentIndex ? "bg-primary" : "bg-gray-700"
-                  }`}
-                  onClick={() => handleDotClick(index)}
-                  aria-label={`View testimonial ${index + 1}`}
-                />
-              ))}
+        <div className="max-w-6xl mx-auto relative" ref={ref}>
+          {/* Main testimonial card */}
+          <ScrollReveal threshold={0.1}>
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  className="relative rounded-2xl overflow-hidden"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {/* Card backdrop with gradient border */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black -z-10"></div>
+                  
+                  <div className="absolute inset-px rounded-2xl p-[1px] bg-gradient-to-b from-white/10 to-transparent backdrop-blur-sm overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 to-black/90 rounded-2xl overflow-hidden">
+                      {/* Decorative elements */}
+                      <div className="absolute top-0 right-0 w-full h-full bg-grid-white/[0.02] bg-[length:40px_40px]"></div>
+                      <div className="absolute -top-24 -right-24 w-48 h-48 bg-red-500/10 rounded-full blur-3xl"></div>
+                      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500/10 to-transparent"></div>
+                    </div>
+                    
+                    {/* Card content */}
+                    <div className="relative p-8 md:p-12">
+                      <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+                        {/* Large quote icon */}
+                        <div className="flex-shrink-0">
+                          <div className="w-16 h-16 rounded-xl flex items-center justify-center bg-red-500/10 text-red-500">
+                            <Quote size={32} />
+                          </div>
+                        </div>
+                        
+                        <div className="flex-1">
+                          {/* Rating */}
+                          <div className="flex justify-center md:justify-start mb-6">
+                            {[...Array(testimonialsData[currentIndex].rating)].map((_, i) => (
+                              <Star key={i} className="w-5 h-5 fill-red-500 text-red-500" />
+                            ))}
+                          </div>
+                          
+                          {/* Quote */}
+                          <blockquote>
+                            <p className="text-lg md:text-xl text-gray-100 leading-relaxed mb-8 text-center md:text-left">
+                              {testimonialsData[currentIndex].quote}
+                            </p>
+                            
+                            {/* Author info */}
+                            <footer className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between">
+                              <div className="mb-4 md:mb-0 text-center md:text-left">
+                                <p className="font-bold text-xl mb-1 text-white">{testimonialsData[currentIndex].author}</p>
+                                <p className="text-gray-400 text-sm">{testimonialsData[currentIndex].role}</p>
+                                <p className="text-red-500 text-sm mt-1">{testimonialsData[currentIndex].company}</p>
+                              </div>
+                              
+                              {/* Company logo placeholder - could be replaced with actual logos */}
+                              <div className="w-16 h-16 rounded-md border border-gray-800 flex items-center justify-center bg-black/50">
+                                <div className="text-xs text-gray-500 text-center">Logo</div>
+                              </div>
+                            </footer>
+                          </blockquote>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+              
+              {/* Navigation buttons */}
+              <div className="flex justify-between absolute top-1/2 left-0 right-0 -translate-y-1/2 pointer-events-none px-4">
+                <button 
+                  onClick={prevTestimonial}
+                  className="w-10 h-10 rounded-full bg-black/70 border border-gray-700 flex items-center justify-center text-white hover:bg-red-500/20 hover:border-red-500/30 transition-colors duration-300 pointer-events-auto"
+                  aria-label="Previous testimonial"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button 
+                  onClick={nextTestimonial}
+                  className="w-10 h-10 rounded-full bg-black/70 border border-gray-700 flex items-center justify-center text-white hover:bg-red-500/20 hover:border-red-500/30 transition-colors duration-300 pointer-events-auto"
+                  aria-label="Next testimonial"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </div>
             </div>
+          </ScrollReveal>
+          
+          {/* Testimonial pagination */}
+          <div className="flex justify-center mt-8">
+            {testimonialsData.map((_, index) => (
+              <button
+                key={index}
+                className={`w-12 h-1 mx-1 transition-all duration-300 rounded-full ${
+                  index === currentIndex 
+                    ? "bg-red-500 w-16" 
+                    : "bg-gray-700 hover:bg-gray-600"
+                }`}
+                onClick={() => handleNavigation(index)}
+                aria-label={`View testimonial ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>
