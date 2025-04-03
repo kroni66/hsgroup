@@ -1,9 +1,21 @@
-import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Twitter, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Send, ChevronRight, ExternalLink, ArrowUp } from "lucide-react";
 import { Link, useLocation } from "wouter";
+import { useEffect, useState } from "react";
 
 export function Footer() {
   const [location] = useLocation();
   const isHomePage = location === "/";
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Monitor scroll position for scroll-to-top button visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 500);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Handler for smooth scroll to sections (only on home page)
   const handleScrollTo = (id: string) => {
@@ -15,215 +27,234 @@ export function Footer() {
     }
   };
 
+  // Handler for scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  // Footer navigation items
+  const mainServices = [
+    { name: "Právní služby HS", link: "/pravni-sluzby", section: "services" },
+    { name: "Správa účetnictví HS", link: "/sprava-ucetnictvi", section: "accounting" },
+    { name: "Daňové poradenství HS", link: "/danove-poradenstvi", section: "tax" },
+    { name: "Likvidace firem HS", link: "/likvidace-firem", section: "liquidation" },
+    { name: "Kontakt", link: "/kontakt", section: "contact" }
+  ];
+
+  const additionalServices = [
+    { name: "Realitní agentura HS", link: "/realitni-agentura", section: "realestate" },
+    { name: "Stavební činnost HS", link: "/stavebni-cinnost", section: "construction" },
+    { name: "O společnosti", link: "/", section: "about" },
+    { name: "Portfolio projektů", link: "/", section: "portfolio" }
+  ];
+
+  const contactInfo = [
+    { icon: <MapPin className="w-4 h-4" />, text: "Václavské náměstí 832/19, 110 00 Praha 1" },
+    { icon: <Phone className="w-4 h-4" />, text: "+420 608 187 355", link: "tel:+420608187355" },
+    { icon: <Mail className="w-4 h-4" />, text: "Info@hsstavbygroup.cz", link: "mailto:Info@hsstavbygroup.cz" }
+  ];
+
   return (
-    <footer className="bg-[#0A0A0A] py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div>
-            <Link href="/" className="flex items-center mb-6">
-              <svg width="40" height="36" viewBox="0 0 50 45" xmlns="http://www.w3.org/2000/svg" className="mr-2">
-                <path d="M10 5 L20 5 L25 40 L15 40 Z" fill="#ff0000" stroke="#000" strokeWidth="1.5" />
-                <path d="M30 5 L40 5 L35 40 L25 40 Z" fill="#ff0000" stroke="#000" strokeWidth="1.5" />
-                <circle cx="40" cy="22" r="10" fill="#000" stroke="#ff0000" strokeWidth="1.5" />
-                <path d="M36 18 C36 18, 44 18, 44 22 C44 26, 36 26, 36 26" fill="none" stroke="#ff0000" strokeWidth="1.5" />
-              </svg>
-              <span className="text-2xl font-bold text-white font-['Montserrat']">
-                <span className="text-primary">HS</span> Group
-              </span>
-            </Link>
-            <p className="font-['Open_Sans'] mb-6">
-              Profesionální služby v oblasti právního poradenství, daňového poradenství, správy účetnictví, likvidace firem, realitní činnosti a stavební činnosti.
-            </p>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-bold mb-6 font-['Montserrat']">Naše služby</h4>
-            <ul className="space-y-3 font-['Open_Sans']">
-              <li>
-                {isHomePage ? (
-                  <button 
-                    onClick={() => handleScrollTo("services")} 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Právní služby HS
-                  </button>
-                ) : (
-                  <Link 
-                    href="/pravni-sluzby" 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Právní služby HS
-                  </Link>
-                )}
-              </li>
-              <li>
-                {isHomePage ? (
-                  <button 
-                    onClick={() => handleScrollTo("accounting")} 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Správa účetnictví HS
-                  </button>
-                ) : (
-                  <Link 
-                    href="/sprava-ucetnictvi" 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Správa účetnictví HS
-                  </Link>
-                )}
-              </li>
-              <li>
-                {isHomePage ? (
-                  <button 
-                    onClick={() => handleScrollTo("tax")} 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Daňové poradenství HS
-                  </button>
-                ) : (
-                  <Link 
-                    href="/danove-poradenstvi" 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Daňové poradenství HS
-                  </Link>
-                )}
-              </li>
-              <li>
-                {isHomePage ? (
-                  <button 
-                    onClick={() => handleScrollTo("liquidation")} 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Likvidace firem HS
-                  </button>
-                ) : (
-                  <Link 
-                    href="/likvidace-firem" 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Likvidace firem HS
-                  </Link>
-                )}
-              </li>
-              <li>
-                {isHomePage ? (
-                  <button 
-                    onClick={() => handleScrollTo("contact")} 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Kontakt
-                  </button>
-                ) : (
-                  <Link 
-                    href="/kontakt" 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Kontakt
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-bold mb-6 font-['Montserrat']">Další služby</h4>
-            <ul className="space-y-3 font-['Open_Sans']">
-              <li>
-                {isHomePage ? (
-                  <button 
-                    onClick={() => handleScrollTo("realestate")} 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Realitní agentura HS
-                  </button>
-                ) : (
-                  <Link 
-                    href="/realitni-agentura" 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Realitní agentura HS
-                  </Link>
-                )}
-              </li>
-              <li>
-                {isHomePage ? (
-                  <button 
-                    onClick={() => handleScrollTo("construction")} 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Stavební činnost HS
-                  </button>
-                ) : (
-                  <Link 
-                    href="/stavebni-cinnost" 
-                    className="text-white hover:text-primary transition-colors duration-300"
-                  >
-                    Stavební činnost HS
-                  </Link>
-                )}
-              </li>
-              <li>
-                <button 
-                  onClick={() => isHomePage ? handleScrollTo("about") : window.location.href = "/"}
-                  className="text-white hover:text-primary transition-colors duration-300"
+    <footer className="bg-black relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500/20 to-transparent"></div>
+        <div className="absolute -left-40 -top-40 w-80 h-80 bg-gradient-radial from-red-900/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute -right-20 bottom-40 w-60 h-60 bg-gradient-radial from-red-900/5 to-transparent rounded-full blur-3xl pointer-events-none"></div>
+      </div>
+      
+      {/* Main footer content */}
+      <div className="relative pt-20 pb-10 border-b border-gray-800">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+            {/* Company info */}
+            <div className="lg:col-span-4">
+              <Link href="/" className="inline-flex items-center group mb-6">
+                <div className="relative">
+                  <svg width="40" height="36" viewBox="0 0 50 45" xmlns="http://www.w3.org/2000/svg" className="mr-2 transition-transform duration-500 group-hover:scale-110">
+                    <path d="M10 5 L20 5 L25 40 L15 40 Z" fill="#ff0000" stroke="#000" strokeWidth="1.5" />
+                    <path d="M30 5 L40 5 L35 40 L25 40 Z" fill="#ff0000" stroke="#000" strokeWidth="1.5" />
+                    <circle cx="40" cy="22" r="10" fill="#000" stroke="#ff0000" strokeWidth="1.5" />
+                    <path d="M36 18 C36 18, 44 18, 44 22 C44 26, 36 26, 36 26" fill="none" stroke="#ff0000" strokeWidth="1.5" />
+                  </svg>
+                  <div className="absolute -inset-1 bg-red-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-2xl font-bold text-white">
+                    <span className="text-red-500">HS</span> Group
+                  </span>
+                  <span className="text-xs text-gray-400 -mt-1">Profesionální služby</span>
+                </div>
+              </Link>
+              
+              <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+                Poskytujeme profesionální služby v oblasti právního poradenství, daňového poradenství, správy účetnictví, likvidace firem, realitní činnosti a stavební činnosti.
+              </p>
+              
+              <div className="space-y-3 mb-8">
+                {contactInfo.map((item, i) => (
+                  <div key={i} className="flex items-start">
+                    <div className="text-red-500 mr-3 mt-1 flex-shrink-0">
+                      {item.icon}
+                    </div>
+                    <div className="text-sm text-gray-300">
+                      {item.link ? (
+                        <a href={item.link} className="hover:text-red-500 transition-colors">
+                          {item.text}
+                        </a>
+                      ) : (
+                        <span>{item.text}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <div className="flex space-x-3">
+                <a 
+                  href="#" 
+                  className="w-9 h-9 rounded-lg flex items-center justify-center bg-white/5 text-gray-400 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
+                  aria-label="Facebook"
                 >
-                  O společnosti
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => isHomePage ? handleScrollTo("portfolio") : window.location.href = "/"}
-                  className="text-white hover:text-primary transition-colors duration-300"
+                  <Facebook className="w-4 h-4" />
+                </a>
+                <a 
+                  href="#" 
+                  className="w-9 h-9 rounded-lg flex items-center justify-center bg-white/5 text-gray-400 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
+                  aria-label="Instagram"
                 >
-                  Portfolio projektů
-                </button>
-              </li>
-              <li>
-                <button 
-                  onClick={() => isHomePage ? handleScrollTo("team") : window.location.href = "/"}
-                  className="text-white hover:text-primary transition-colors duration-300"
+                  <Instagram className="w-4 h-4" />
+                </a>
+                <a 
+                  href="#" 
+                  className="w-9 h-9 rounded-lg flex items-center justify-center bg-white/5 text-gray-400 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
+                  aria-label="LinkedIn"
                 >
-                  Náš tým
-                </button>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-bold mb-6 font-['Montserrat']">Newsletter</h4>
-            <p className="font-['Open_Sans'] mb-4">
-              Přihlaste se k odběru našeho newsletteru a získejte nejnovější informace a tipy z oblasti právních, daňových a podnikatelských služeb.
-            </p>
-            <form className="flex">
-              <input 
-                type="email" 
-                className="bg-[#121212] border border-gray-700 p-3 w-full rounded-l-sm text-white focus:border-primary focus:outline-none" 
-                placeholder="Váš email"
-              />
-              <button 
-                type="submit" 
-                className="bg-primary text-[#0A0A0A] px-4 rounded-r-sm hover:bg-opacity-90 transition-all duration-300"
-              >
-                <Send size={18} />
-              </button>
-            </form>
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+            
+            {/* Navigation columns */}
+            <div className="lg:col-span-2">
+              <h4 className="text-white font-medium text-base mb-5">Naše služby</h4>
+              <ul className="space-y-3">
+                {mainServices.map((service, i) => (
+                  <li key={i}>
+                    {isHomePage ? (
+                      <button 
+                        onClick={() => handleScrollTo(service.section)} 
+                        className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center group"
+                      >
+                        <ChevronRight className="w-3 h-3 opacity-0 -ml-4 mr-1 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                        {service.name}
+                      </button>
+                    ) : (
+                      <Link 
+                        href={service.link} 
+                        className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center group"
+                      >
+                        <ChevronRight className="w-3 h-3 opacity-0 -ml-4 mr-1 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                        {service.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="lg:col-span-2">
+              <h4 className="text-white font-medium text-base mb-5">Další služby</h4>
+              <ul className="space-y-3">
+                {additionalServices.map((service, i) => (
+                  <li key={i}>
+                    {isHomePage ? (
+                      <button 
+                        onClick={() => handleScrollTo(service.section)} 
+                        className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center group"
+                      >
+                        <ChevronRight className="w-3 h-3 opacity-0 -ml-4 mr-1 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                        {service.name}
+                      </button>
+                    ) : (
+                      <Link 
+                        href={service.link} 
+                        className="text-gray-400 hover:text-red-500 transition-colors text-sm flex items-center group"
+                      >
+                        <ChevronRight className="w-3 h-3 opacity-0 -ml-4 mr-1 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300" />
+                        {service.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Newsletter section */}
+            <div className="lg:col-span-4">
+              <h4 className="text-white font-medium text-base mb-5">Newsletter</h4>
+              <p className="text-gray-400 mb-4 text-sm">
+                Přihlaste se k odběru newsletteru a získejte nejnovější informace a tipy z oblasti právních, daňových a podnikatelských služeb.
+              </p>
+              
+              <form className="mb-4">
+                <div className="relative">
+                  <input 
+                    type="email" 
+                    className="w-full py-3 pl-4 pr-12 bg-white/5 backdrop-blur-sm border border-gray-800 rounded-lg text-white focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none transition-colors" 
+                    placeholder="Váš email"
+                  />
+                  <button 
+                    type="submit" 
+                    className="absolute right-1 top-1 bottom-1 bg-gradient-to-r from-red-700 to-red-600 text-white px-3 rounded-md hover:from-red-600 hover:to-red-500 transition-all duration-300"
+                  >
+                    <Send className="w-4 h-4" />
+                  </button>
+                </div>
+              </form>
+              
+              <div className="inline-flex items-center text-xs text-gray-500">
+                <ExternalLink className="w-3 h-3 mr-1" />
+                Odesláním souhlasíte se zpracováním osobních údajů.
+              </div>
+            </div>
           </div>
         </div>
-        
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="font-['Open_Sans'] mb-4 md:mb-0">&copy; 2024 HS Group. Všechna práva vyhrazena.</p>
-          <div className="flex space-x-4">
-            <Link href="/pravni-sluzby" className="text-white hover:text-primary transition-colors duration-300">
+      </div>
+      
+      {/* Copyright section */}
+      <div className="container mx-auto px-6 py-6">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+            &copy; {new Date().getFullYear()} HS Group. Všechna práva vyhrazena.
+          </p>
+          <div className="flex flex-wrap gap-6">
+            <Link href="/pravni-sluzby" className="text-gray-400 hover:text-red-500 transition-colors text-sm">
               Zásady ochrany osobních údajů
             </Link>
-            <Link href="/pravni-sluzby" className="text-white hover:text-primary transition-colors duration-300">
+            <Link href="/pravni-sluzby" className="text-gray-400 hover:text-red-500 transition-colors text-sm">
               Podmínky používání
+            </Link>
+            <Link href="/sitemap" className="text-gray-400 hover:text-red-500 transition-colors text-sm">
+              Mapa stránek
             </Link>
           </div>
         </div>
       </div>
+      
+      {/* Scroll to top button */}
+      {showScrollTop && (
+        <button 
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-red-500 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-black transition-all z-50 shadow-lg"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
+      )}
     </footer>
   );
 }

@@ -1,162 +1,229 @@
 import { motion } from "framer-motion";
-import { Building, ChartLine, Handshake, Diamond, Percent, Coins, Gavel, Calculator, FileText, FileQuestion, Home, HardHat } from "lucide-react";
+import { 
+  Gavel, Calculator, FileText, FileQuestion, Home, HardHat, 
+  ChevronRight, CheckCircle2, ArrowRight, CircleDot
+} from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
-import { Parallax } from "react-scroll-parallax";
 import { Link } from "wouter";
 
 // Updated service data with additional styling parameters and links to dedicated pages
 const servicesData = [
   {
-    icon: <Gavel className="text-3xl" />,
+    icon: <Gavel className="w-6 h-6" />,
     title: "Právní služby HS",
     description: "Kompletní právní servis pro firmy i jednotlivce v oblasti obchodního a nemovitostního práva.",
     delay: 0.1,
     direction: "up" as const,
-    link: "/pravni-sluzby"
+    link: "/pravni-sluzby",
+    features: ["Smluvní dokumentace", "Právní audit", "Obchodní spory"]
   },
   {
-    icon: <Calculator className="text-3xl" />,
+    icon: <Calculator className="w-6 h-6" />,
     title: "Správa účetnictví HS",
     description: "Profesionální vedení účetnictví, zpracování daňových přiznání a finanční poradenství.",
     delay: 0.2,
     direction: "up" as const,
-    link: "/sprava-ucetnictvi"
+    link: "/sprava-ucetnictvi",
+    features: ["Vedení účetnictví", "Mzdová agenda", "Daňová přiznání"]
   },
   {
-    icon: <FileText className="text-3xl" />,
+    icon: <FileText className="w-6 h-6" />,
     title: "Daňové poradenství HS",
     description: "Odborné daňové poradenství zaměřené na optimalizaci daňové povinnosti podnikatelů i firem.",
     delay: 0.3,
     direction: "up" as const,
-    link: "/danove-poradenstvi"
+    link: "/danove-poradenstvi",
+    features: ["Daňová optimalizace", "Zastupování při kontrole", "DPH poradenství"]
   },
   {
-    icon: <FileQuestion className="text-3xl" />,
+    icon: <FileQuestion className="w-6 h-6" />,
     title: "Likvidace firem HS",
     description: "Komplexní zajištění procesu likvidace obchodních společností včetně právní podpory.",
     delay: 0.4,
     direction: "up" as const,
-    link: "/likvidace-firem"
+    link: "/likvidace-firem",
+    features: ["Likvidace s.r.o.", "Likvidace a.s.", "Likvidace závazků"]
   },
   {
-    icon: <Home className="text-3xl" />,
+    icon: <Home className="w-6 h-6" />,
     title: "Realitní agentura HS",
     description: "Profesionální služby v oblasti prodeje, nákupu a pronájmu rezidenčních i komerčních nemovitostí.",
     delay: 0.5,
     direction: "up" as const,
-    link: "/realitni-agentura"
+    link: "/realitni-agentura",
+    features: ["Prodej nemovitostí", "Pronájem prostor", "Správa nemovitostí"]
   },
   {
-    icon: <HardHat className="text-3xl" />,
+    icon: <HardHat className="w-6 h-6" />,
     title: "Stavební činnost HS",
     description: "Realizace stavebních projektů od návrhu po dokončení, rekonstrukce a odborný stavební dozor.",
     delay: 0.6,
     direction: "up" as const,
-    link: "/stavebni-cinnost"
+    link: "/stavebni-cinnost",
+    features: ["Rekonstrukce", "Nové stavby", "Stavební dozor"]
   },
 ];
 
 export function ServicesSection() {
-  // Animation for the service cards with hover effect
-  const cardHoverAnimation = {
-    rest: { 
-      y: 0,
-      transition: { 
-        duration: 0.2,
-        ease: "easeOut"
-      } 
-    },
-    hover: { 
-      y: -10,
-      boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-      transition: { 
-        duration: 0.2,
-        ease: "easeOut"
-      } 
-    }
-  };
-
-  // Animation for the icon with hover effect
-  const iconAnimation = {
-    rest: { 
-      scale: 1,
-      transition: { 
-        duration: 0.2,
-        ease: "easeOut"
-      } 
-    },
-    hover: { 
-      scale: 1.15,
-      transition: { 
-        duration: 0.2,
-        ease: "easeOut"
-      } 
-    }
-  };
-
   return (
-    <section id="services" className="py-20 bg-[#121212] overflow-hidden">
-      <div className="container mx-auto px-4">
-        <Parallax translateY={[-10, 10]}>
+    <section id="services" className="py-24 bg-gradient-to-b from-black to-[#0A0A0A] relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute w-full h-px left-0 top-0 bg-gradient-to-r from-transparent via-red-500/20 to-transparent"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(40,40,40,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(40,40,40,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+      <div className="absolute left-0 top-1/3 w-[500px] h-[500px] bg-gradient-radial from-red-600/5 to-transparent rounded-full blur-3xl -z-10"></div>
+      <div className="absolute right-0 bottom-1/4 w-[600px] h-[600px] bg-gradient-radial from-slate-800/30 to-transparent rounded-full blur-3xl -z-10"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-3xl mx-auto text-center mb-20">
+          {/* Eyebrow text */}
+          <ScrollReveal
+            direction="down" 
+            delay={0.1}
+            className="inline-flex items-center mb-4 text-sm text-red-500 font-medium"
+          >
+            <span className="inline-block h-px w-5 bg-red-500 mr-2.5"></span>
+            <span className="uppercase tracking-wider">Profesionální služby</span>
+            <span className="inline-block h-px w-5 bg-red-500 ml-2.5"></span>
+          </ScrollReveal>
+          
           <ScrollReveal 
             direction="down" 
-            duration={0.6} 
-            className="text-center mb-16"
+            delay={0.2}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-['Montserrat']">
-              <span className="text-primary">Naše</span> služby
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+              <span className="text-white">Komplexní služby</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-600 block md:inline"> pro váš byznys</span>
             </h2>
-            <p className="text-lg max-w-3xl mx-auto font-['Open_Sans'] mb-4">
-              Poskytujeme komplexní portfolio služeb v oblasti nemovitostí a investic, které jsou přizpůsobeny potřebám našich klientů.
-            </p>
-            <blockquote className="max-w-2xl mx-auto border-l-4 border-primary pl-4 text-left my-8">
-              <p className="text-xl italic font-['Open_Sans'] leading-relaxed">
-                "Poskytujeme profesionální poradenství a služby v oblasti daní, účetnictví a práva. S naším týmem odborníků získáte spolehlivé řešení pro váš byznys."
-              </p>
-            </blockquote>
           </ScrollReveal>
-        </Parallax>
+          
+          <ScrollReveal 
+            direction="down" 
+            delay={0.3}
+          >
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8 text-balance">
+              Poskytujeme profesionální poradenství a služby, které jsou přizpůsobeny potřebám našich klientů. S naším týmem odborníků získáte spolehlivé řešení pro váš byznys.
+            </p>
+          </ScrollReveal>
+          
+          <ScrollReveal 
+            direction="down" 
+            delay={0.4}
+          >
+            <div className="flex flex-wrap justify-center gap-3 mb-8">
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-gray-300 backdrop-blur-sm border border-white/10">
+                <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-red-500" />
+                Profesionální tým
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-gray-300 backdrop-blur-sm border border-white/10">
+                <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-red-500" />
+                Individuální přístup
+              </span>
+              <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 text-sm text-gray-300 backdrop-blur-sm border border-white/10">
+                <CheckCircle2 className="w-3.5 h-3.5 mr-1.5 text-red-500" />
+                Dlouholeté zkušenosti
+              </span>
+            </div>
+          </ScrollReveal>
+        </div>
         
-        {/* Decorative background elements */}
-        <div className="absolute left-0 top-1/3 w-72 h-72 bg-primary opacity-5 rounded-full blur-3xl -z-10" />
-        <div className="absolute right-0 bottom-1/4 w-96 h-96 bg-primary opacity-5 rounded-full blur-3xl -z-10" />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {servicesData.map((service, index) => (
             <ScrollReveal
               key={index}
               direction={service.direction}
               delay={service.delay}
-              duration={0.6}
-              distance={40}
+              duration={0.5}
+              distance={30}
             >
-              <Link href={service.link} className="block">
+              <Link href={service.link}>
                 <motion.div
-                  className="bg-[#0A0A0A] p-8 rounded-md transition-all duration-300 h-full cursor-pointer group"
-                  initial="rest"
-                  whileHover="hover"
-                  animate="rest"
-                  variants={cardHoverAnimation}
+                  className="group relative rounded-xl overflow-hidden h-full"
+                  initial={{ opacity: 0.95 }}
+                  whileHover={{ 
+                    opacity: 1,
+                    y: -5,
+                    transition: { duration: 0.2, ease: "easeOut" }
+                  }}
                 >
-                  <motion.div 
-                    className="text-primary mb-4"
-                    variants={iconAnimation}
-                  >
-                    {service.icon}
-                  </motion.div>
-                  <h3 className="text-xl font-bold mb-4 font-['Montserrat']">{service.title}</h3>
-                  <p className="text-white font-['Open_Sans']">
-                    {service.description}
-                  </p>
-                  <div className="mt-4 text-primary text-sm flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span>Zobrazit více</span>
-                    <span className="ml-1">→</span>
+                  {/* Card backdrop */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black -z-10"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-600/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+                  
+                  {/* Border effect */}
+                  <div className="absolute inset-px rounded-xl p-[1px] bg-gradient-to-b from-white/10 to-transparent backdrop-blur-sm overflow-hidden">
+                    <div className="absolute inset-0 bg-black rounded-xl"></div>
+                    
+                    {/* Card content */}
+                    <div className="relative h-full flex flex-col p-6 bg-gray-900/40">
+                      {/* Icon with gradient background */}
+                      <div className="relative mb-5">
+                        <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 to-transparent blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 mb-4">
+                          <motion.div 
+                            className="text-red-500"
+                            initial={{ scale: 1 }}
+                            whileHover={{ scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            {service.icon}
+                          </motion.div>
+                        </div>
+                      </div>
+                      
+                      {/* Title and description */}
+                      <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                      <p className="text-gray-300 mb-6 text-sm">{service.description}</p>
+                      
+                      {/* Features list */}
+                      <div className="space-y-2 mb-8 mt-auto">
+                        {service.features.map((feature, i) => (
+                          <div key={i} className="flex items-start">
+                            <CircleDot className="w-4 h-4 text-red-500 mt-0.5 mr-2.5 flex-shrink-0" />
+                            <span className="text-sm text-gray-200">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      {/* CTA Link */}
+                      <div className="mt-auto">
+                        <div className="flex items-center font-medium text-sm text-red-500 group-hover:text-red-400 transition-colors">
+                          <span>Zobrazit více</span>
+                          <motion.div
+                            initial={{ x: 0 }}
+                            whileHover={{ x: 5 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <ChevronRight className="w-4 h-4 ml-1" />
+                          </motion.div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               </Link>
             </ScrollReveal>
           ))}
         </div>
+        
+        {/* All services button */}
+        <ScrollReveal direction="up" delay={0.7} className="mt-16 text-center">
+          <motion.div
+            initial={{ opacity: 0.9 }}
+            whileHover={{ 
+              opacity: 1,
+              scale: 1.02,
+              transition: { duration: 0.2 }
+            }}
+          >
+            <Link href="/services">
+              <div className="inline-flex items-center py-3 px-5 rounded-lg bg-white/5 hover:bg-white/10 backdrop-blur-sm border border-white/10 transition-colors">
+                <span className="mr-2 font-medium">Všechny naše služby</span>
+                <ArrowRight className="w-4 h-4" />
+              </div>
+            </Link>
+          </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   );
