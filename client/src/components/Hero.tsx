@@ -152,7 +152,7 @@ export function Hero() {
                 variants={childVariants}
               >
                 <p className="text-xl md:text-2xl italic font-['Open_Sans'] leading-relaxed">
-                  "Profesionalita, důvěra a komplexní přístup – s námi budete vždy připraveni na každou výzvu a vaše podnikání bude na pevných základech."
+                  "Kdo má strach, nevyhrává! Investujte s odvahou a sledujte, jak rostou vaše finance."
                 </p>
               </motion.blockquote>
               
