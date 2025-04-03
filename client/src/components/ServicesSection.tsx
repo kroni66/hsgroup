@@ -107,9 +107,38 @@ export function ServicesSection() {
             direction="down" 
             delay={0.3}
           >
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8 text-balance">
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-4 text-balance">
               Poskytujeme profesionální poradenství a služby, které jsou přizpůsobeny potřebám našich klientů. S naším týmem odborníků získáte spolehlivé řešení pro váš byznys.
             </p>
+          </ScrollReveal>
+          
+          <ScrollReveal
+            direction="down"
+            delay={0.35}
+          >
+            <motion.div 
+              className="relative py-3 px-8 rounded-full bg-gradient-to-r from-red-950/30 via-red-900/40 to-red-950/30 inline-block mb-8 border border-red-600/30 shadow-[0_0_15px_rgba(185,28,28,0.1)]"
+              initial={{ opacity: 0.9, scale: 0.98 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1,
+                boxShadow: ["0 0 15px rgba(185,28,28,0.1)", "0 0 20px rgba(185,28,28,0.2)", "0 0 15px rgba(185,28,28,0.1)"]
+              }}
+              transition={{ 
+                duration: 2,
+                repeat: Infinity,
+                repeatType: "reverse" 
+              }}
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.2 }
+              }}
+            >
+              <div className="absolute inset-0 rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(185,28,28,0.2)_0%,transparent_70%)] blur-md"></div>
+              <p className="relative text-md md:text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-red-500">
+                Optimalizujte své daně legálně a efektivně
+              </p>
+            </motion.div>
           </ScrollReveal>
           
           <ScrollReveal 
