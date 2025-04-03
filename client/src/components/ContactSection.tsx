@@ -122,9 +122,9 @@ export function ContactSection() {
           </ScrollReveal>
         </div>
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-14">
-          {/* Contact form */}
-          <ScrollReveal direction="left" delay={0.4} threshold={0.1}>
+        {/* Centered contact form */}
+        <div className="max-w-3xl mx-auto mb-16">
+          <ScrollReveal direction="up" delay={0.4} threshold={0.1}>
             <div className="relative rounded-xl overflow-hidden">
               {/* Card backdrop */}
               <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black -z-10"></div>
@@ -134,60 +134,64 @@ export function ContactSection() {
                 <div className="absolute inset-0 bg-gradient-to-b from-gray-900/80 to-black/90 rounded-xl overflow-hidden">
                   {/* Accent decorations */}
                   <div className="absolute -top-24 -right-24 w-48 h-48 bg-red-500/10 rounded-full blur-3xl"></div>
+                  <div className="absolute -top-24 -left-24 w-48 h-48 bg-red-500/10 rounded-full blur-3xl"></div>
                   <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500/10 to-transparent"></div>
                 </div>
                 
                 {/* Form content */}
-                <div className="relative p-8">
+                <div className="relative p-8 md:p-10">
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-8 space-y-6">
-                      {/* Name input */}
-                      <div>
-                        <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-200">
-                          Jméno <span className="text-red-500">*</span>
-                        </label>
-                        <div className="relative">
-                          <div className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
-                            <User className="w-5 h-5" />
+                      {/* Name and Email in one row on larger screens */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Name input */}
+                        <div>
+                          <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-200">
+                            Jméno <span className="text-red-500">*</span>
+                          </label>
+                          <div className="relative">
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                              <User className="w-5 h-5" />
+                            </div>
+                            <input 
+                              id="name" 
+                              {...register("name")}
+                              className="w-full pl-10 pr-4 py-3 bg-black/50 backdrop-blur-sm border border-gray-800 rounded-lg text-white focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none transition-colors" 
+                              placeholder="Vaše jméno" 
+                            />
                           </div>
-                          <input 
-                            id="name" 
-                            {...register("name")}
-                            className="w-full pl-10 pr-4 py-3 bg-black/50 backdrop-blur-sm border border-gray-800 rounded-lg text-white focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none transition-colors" 
-                            placeholder="Vaše jméno" 
-                          />
+                          {errors.name && (
+                            <p className="mt-1.5 flex items-center text-sm text-red-500">
+                              <AlertCircle className="w-4 h-4 mr-1.5 flex-shrink-0" />
+                              {errors.name.message}
+                            </p>
+                          )}
                         </div>
-                        {errors.name && (
-                          <p className="mt-1.5 flex items-center text-sm text-red-500">
-                            <AlertCircle className="w-4 h-4 mr-1.5 flex-shrink-0" />
-                            {errors.name.message}
-                          </p>
-                        )}
-                      </div>
-                      
-                      {/* Email input */}
-                      <div>
-                        <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-200">
-                          Email <span className="text-red-500">*</span>
-                        </label>
-                        <div className="relative">
-                          <div className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
-                            <AtSign className="w-5 h-5" />
+                        
+                        {/* Email input */}
+                        <div>
+                          <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-200">
+                            Email <span className="text-red-500">*</span>
+                          </label>
+                          <div className="relative">
+                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+                              <AtSign className="w-5 h-5" />
+                            </div>
+                            <input 
+                              type="email" 
+                              id="email" 
+                              {...register("email")}
+                              className="w-full pl-10 pr-4 py-3 bg-black/50 backdrop-blur-sm border border-gray-800 rounded-lg text-white focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none transition-colors" 
+                              placeholder="Váš email" 
+                            />
                           </div>
-                          <input 
-                            type="email" 
-                            id="email" 
-                            {...register("email")}
-                            className="w-full pl-10 pr-4 py-3 bg-black/50 backdrop-blur-sm border border-gray-800 rounded-lg text-white focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none transition-colors" 
-                            placeholder="Váš email" 
-                          />
+                          {errors.email && (
+                            <p className="mt-1.5 flex items-center text-sm text-red-500">
+                              <AlertCircle className="w-4 h-4 mr-1.5 flex-shrink-0" />
+                              {errors.email.message}
+                            </p>
+                          )}
                         </div>
-                        {errors.email && (
-                          <p className="mt-1.5 flex items-center text-sm text-red-500">
-                            <AlertCircle className="w-4 h-4 mr-1.5 flex-shrink-0" />
-                            {errors.email.message}
-                          </p>
-                        )}
                       </div>
                       
                       {/* Phone input */}
@@ -262,31 +266,32 @@ export function ContactSection() {
               </div>
             </div>
           </ScrollReveal>
-          
-          {/* Contact information and map */}
-          <div className="flex flex-col gap-10">
-            {/* Contact cards */}
-            <ScrollReveal direction="right" delay={0.4} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {contactInfo.map((item, index) => (
+        </div>
+        
+        {/* Contact information */}
+        <div className="max-w-5xl mx-auto">
+          {/* Contact cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {contactInfo.map((item, index) => (
+              <ScrollReveal key={index} direction="up" delay={0.4 + (index * 0.1)} className="h-full">
                 <div 
-                  key={index}
-                  className="relative p-6 border border-gray-800 bg-gradient-to-b from-gray-900 to-black/90 rounded-xl overflow-hidden group hover:border-red-500/30 transition-colors duration-300"
+                  className="relative p-6 border border-gray-800 bg-gradient-to-b from-gray-900 to-black/90 rounded-xl overflow-hidden group hover:border-red-500/30 transition-colors duration-300 h-full flex flex-col"
                 >
                   {/* Content */}
-                  <div className="flex space-x-4">
-                    <div className="flex-shrink-0">
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-red-500/10 text-red-500 group-hover:bg-red-500/20 transition-colors duration-300">
+                  <div className="flex flex-col items-center text-center">
+                    <div className="mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center bg-red-500/10 text-red-500 group-hover:bg-red-500/20 transition-colors duration-300">
                         {item.icon}
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-medium text-white mb-1">{item.title}</h3>
-                      <p className="text-gray-300 text-sm mb-2">{item.content}</p>
+                    <div>
+                      <h3 className="text-lg font-medium text-white mb-2">{item.title}</h3>
+                      <p className="text-gray-300 text-sm mb-4">{item.content}</p>
                       
                       {item.link && (
                         <a 
                           href={item.link} 
-                          className="inline-flex items-center text-xs text-red-500 hover:text-red-400 transition-colors"
+                          className="inline-flex items-center text-sm text-red-500 hover:text-red-400 transition-colors"
                         >
                           {item.linkText} →
                         </a>
@@ -299,66 +304,64 @@ export function ContactSection() {
                     <div className="absolute -top-px -right-px w-0 h-0 border-t-[50px] border-t-red-500/10 border-l-[50px] border-l-transparent transform rotate-90"></div>
                   </div>
                 </div>
-              ))}
-            </ScrollReveal>
-            
-            {/* Business hours and booking button */}
-            <ScrollReveal direction="right" delay={0.5}>
-              <div className="relative rounded-xl overflow-hidden border border-gray-800">
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black/90 -z-10"></div>
-                
-                <div className="p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                  <div>
-                    <h3 className="text-lg font-medium text-white mb-1 flex items-center">
-                      <Calendar className="w-5 h-5 mr-2 text-red-500" />
-                      Potřebujete konzultaci?
-                    </h3>
-                    <p className="text-gray-300 text-sm">
-                      Zarezervujte si schůzku s našimi odborníky a získejte řešení na míru.
-                    </p>
-                  </div>
-                  
-                  <a 
-                    href="tel:+420608187355"
-                    className="inline-flex items-center justify-center bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-red-500 text-white py-2.5 px-5 rounded-lg font-medium transition-all duration-300 whitespace-nowrap shadow-lg shadow-red-700/20"
-                  >
-                    <Phone className="w-4 h-4 mr-2" />
-                    <span>Domluvit schůzku</span>
-                  </a>
-                </div>
-              </div>
-            </ScrollReveal>
-            
-            {/* Social media */}
-            <ScrollReveal direction="right" delay={0.6}>
-              <div className="relative p-6 rounded-xl overflow-hidden border border-gray-800 bg-gradient-to-b from-gray-900 to-black/90">
-                <h3 className="text-lg font-medium text-white mb-4">Sledujte nás</h3>
-                <div className="flex space-x-3">
-                  <a 
-                    href="#" 
-                    className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 text-gray-300 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="w-5 h-5" />
-                  </a>
-                  <a 
-                    href="#" 
-                    className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 text-gray-300 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="w-5 h-5" />
-                  </a>
-                  <a 
-                    href="#" 
-                    className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 text-gray-300 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
-            </ScrollReveal>
+              </ScrollReveal>
+            ))}
           </div>
+          
+          {/* Business hours and booking button */}
+          <ScrollReveal direction="up" delay={0.8} className="mt-8">
+            <div className="relative rounded-xl overflow-hidden border border-gray-800">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black/90 -z-10"></div>
+              
+              <div className="p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div className="text-center md:text-left">
+                  <h3 className="text-lg font-medium text-white mb-1 flex items-center justify-center md:justify-start">
+                    <Calendar className="w-5 h-5 mr-2 text-red-500" />
+                    Potřebujete konzultaci?
+                  </h3>
+                  <p className="text-gray-300 text-sm">
+                    Zarezervujte si schůzku s našimi odborníky a získejte řešení na míru.
+                  </p>
+                </div>
+                
+                <a 
+                  href="tel:+420608187355"
+                  className="inline-flex items-center justify-center bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-red-500 text-white py-2.5 px-5 rounded-lg font-medium transition-all duration-300 whitespace-nowrap shadow-lg shadow-red-700/20 mx-auto md:mx-0"
+                >
+                  <Phone className="w-4 h-4 mr-2" />
+                  <span>Domluvit schůzku</span>
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
+          
+          {/* Social media */}
+          <ScrollReveal direction="up" delay={0.9} className="mt-8 text-center">
+            <h3 className="text-lg font-medium text-white mb-4">Sledujte nás</h3>
+            <div className="flex space-x-4 justify-center">
+              <a 
+                href="#" 
+                className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 text-gray-300 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a 
+                href="#" 
+                className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 text-gray-300 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a 
+                href="#" 
+                className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 text-gray-300 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
