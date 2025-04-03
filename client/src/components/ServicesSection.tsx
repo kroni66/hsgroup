@@ -106,9 +106,14 @@ export function ServicesSection() {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 font-['Montserrat']">
               <span className="text-primary">Naše</span> služby
             </h2>
-            <p className="text-lg max-w-3xl mx-auto font-['Open_Sans']">
+            <p className="text-lg max-w-3xl mx-auto font-['Open_Sans'] mb-4">
               Poskytujeme komplexní portfolio služeb v oblasti nemovitostí a investic, které jsou přizpůsobeny potřebám našich klientů.
             </p>
+            <blockquote className="max-w-2xl mx-auto border-l-4 border-primary pl-4 text-left my-8">
+              <p className="text-xl italic font-['Open_Sans'] leading-relaxed">
+                "Kdo má strach, nevyhrává! Investujte s odvahou a sledujte, jak rostou vaše finance."
+              </p>
+            </blockquote>
           </ScrollReveal>
         </Parallax>
         

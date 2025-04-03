@@ -141,20 +141,11 @@ export function Hero() {
               </motion.h1>
               
               <motion.h2
-                className="text-xl md:text-3xl mb-6 font-['Montserrat'] text-gray-300"
+                className="text-xl md:text-3xl mb-8 font-['Montserrat'] text-gray-300"
                 variants={childVariants}
               >
                 Vaše komplexní řešení v oblasti právních, daňových a podnikatelských služeb
               </motion.h2>
-              
-              <motion.blockquote 
-                className="border-l-4 border-primary pl-4 mb-8"
-                variants={childVariants}
-              >
-                <p className="text-xl md:text-2xl italic font-['Open_Sans'] leading-relaxed">
-                  "Kdo má strach, nevyhrává! Investujte s odvahou a sledujte, jak rostou vaše finance."
-                </p>
-              </motion.blockquote>
               
               <motion.div 
                 className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
