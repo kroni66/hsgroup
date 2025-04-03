@@ -55,9 +55,9 @@ export function CTASection() {
         </motion.div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .gold-gradient {
-          background: linear-gradient(90deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+          background: linear-gradient(90deg, #ff0000, #ff6666, #cc0000, #ff3333, #990000);
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;

@@ -14,8 +14,16 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <div className="text-2xl font-bold text-white mb-6 font-['Montserrat']">
-              <span className="text-primary">HS</span>-GROUP
+            <div className="flex items-center mb-6">
+              <svg width="40" height="36" viewBox="0 0 50 45" xmlns="http://www.w3.org/2000/svg" className="mr-2">
+                <path d="M10 5 L20 5 L25 40 L15 40 Z" fill="#ff0000" stroke="#000" strokeWidth="1.5" />
+                <path d="M30 5 L40 5 L35 40 L25 40 Z" fill="#ff0000" stroke="#000" strokeWidth="1.5" />
+                <circle cx="40" cy="22" r="10" fill="#000" stroke="#ff0000" strokeWidth="1.5" />
+                <path d="M36 18 C36 18, 44 18, 44 22 C44 26, 36 26, 36 26" fill="none" stroke="#ff0000" strokeWidth="1.5" />
+              </svg>
+              <span className="text-2xl font-bold text-white font-['Montserrat']">
+                <span className="text-primary">HS</span>-GROUP
+              </span>
             </div>
             <p className="font-['Open_Sans'] mb-6">
               Profesionální služby v oblasti realit a investic do nemovitostí s důrazem na kvalitu a spokojenost klientů.

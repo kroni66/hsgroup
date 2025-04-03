@@ -115,7 +115,7 @@ export function HistorySection() {
         </motion.div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .timeline-item {
           position: relative;
           padding-left: 30px;
@@ -128,7 +128,7 @@ export function HistorySection() {
           top: 0;
           height: 100%;
           width: 2px;
-          background-color: hsl(46, 57%, 52%);
+          background-color: hsl(0, 100%, 50%);
         }
         .timeline-item:after {
           content: '';
@@ -138,7 +138,7 @@ export function HistorySection() {
           height: 10px;
           width: 10px;
           border-radius: 50%;
-          background-color: hsl(46, 57%, 52%);
+          background-color: hsl(0, 100%, 50%);
         }
       `}</style>
     </section>
