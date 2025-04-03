@@ -6,7 +6,6 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { CTASection } from "@/components/CTASection";
 import { PortfolioSection } from "@/components/PortfolioSection";
 import { HistorySection } from "@/components/HistorySection";
-import { TeamSection } from "@/components/TeamSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
@@ -22,7 +21,6 @@ export default function Home() {
       <CTASection />
       <PortfolioSection />
       <HistorySection />
-      <TeamSection />
       <TestimonialsSection />
       <ContactSection />
       <Footer />
