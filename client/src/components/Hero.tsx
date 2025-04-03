@@ -1,7 +1,19 @@
 import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Transform values based on scroll progress
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const titleY = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -15,7 +27,7 @@ export function Hero() {
   };
 
   const childVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
@@ -35,31 +47,91 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="h-screen relative">
+    <section id="hero" ref={heroRef} className="h-screen relative overflow-hidden">
       <ParallaxBanner className="h-full">
-        {/* Background image layer with parallax effect */}
-        <ParallaxBannerLayer speed={-20}>
-          <div 
+        {/* Background image layer with enhanced parallax effect */}
+        <ParallaxBannerLayer speed={-25}>
+          <motion.div 
             className="absolute inset-0 bg-center bg-cover"
             style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80')"
+              backgroundImage: "url('https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80')",
+              scale: bgScale
             }}
           />
         </ParallaxBannerLayer>
 
-        {/* Overlay layer */}
+        {/* Overlay layer with dynamic opacity */}
         <ParallaxBannerLayer speed={0}>
           <div className="absolute inset-0 bg-black bg-opacity-60" />
         </ParallaxBannerLayer>
+        
+        {/* Floating geometric shapes */}
+        <div className="absolute inset-0 overflow-hidden z-10">
+          {/* Red Square */}
+          <motion.div 
+            className="absolute w-24 h-24 bg-primary opacity-40 rounded-sm top-1/4 right-[20%] hidden md:block"
+            animate={{
+              y: [0, -20, 0],
+              x: [0, -10, 0],
+              rotate: [0, 5, 0]
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Red Circle */}
+          <motion.div 
+            className="absolute w-32 h-32 bg-primary opacity-30 rounded-full bottom-1/4 left-[15%] hidden md:block"
+            animate={{
+              y: [0, 20, 0],
+              x: [0, 10, 0],
+              scale: [1, 0.9, 1]
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          {/* Black Triangle */}
+          <motion.div 
+            className="absolute opacity-50 top-1/3 left-[30%] hidden md:block"
+            style={{
+              width: 0,
+              height: 0,
+              borderLeft: '30px solid transparent',
+              borderRight: '30px solid transparent',
+              borderBottom: '50px solid #2D2D2D'
+            }}
+            animate={{
+              y: [0, 15, 0],
+              x: [0, -15, 0],
+              rotate: [0, -10, 0]
+            }}
+            transition={{
+              duration: 7,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </div>
 
-        {/* Content layer */}
-        <ParallaxBannerLayer speed={-5} className="flex items-center">
+        {/* Content layer with enhanced parallax speed */}
+        <ParallaxBannerLayer speed={-10} className="flex items-center">
           <div className="container mx-auto px-4 z-10 relative">
             <motion.div 
               className="max-w-3xl"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
+              style={{ 
+                opacity: titleOpacity,
+                y: titleY
+              }}
             >
               <motion.h1 
                 className="text-4xl md:text-6xl font-bold mb-6 font-['Montserrat'] leading-tight"

@@ -1,30 +1,8 @@
-import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { ScrollReveal } from "./ScrollReveal";
+import { Parallax } from "react-scroll-parallax";
 
 export function AboutSection() {
-  const { ref: textRef, inView: textInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
-  
-  const { ref: imageRef, inView: imageInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
-
-  // Animation variants
-  const variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      }
-    }
-  };
-
   // Handle scroll to contact section
   const handleScrollToContact = () => {
     const contactSection = document.getElementById("contact");
@@ -34,14 +12,13 @@ export function AboutSection() {
   };
 
   return (
-    <section id="about" className="py-20 bg-[#0A0A0A]">
+    <section id="about" className="py-20 bg-[#0A0A0A] overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            ref={textRef}
-            variants={variants}
-            initial="hidden"
-            animate={textInView ? "visible" : "hidden"}
+          <ScrollReveal 
+            direction="left" 
+            delay={0.2} 
+            duration={0.8}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 font-['Montserrat']">
               <span className="text-primary">O</span> společnosti HS-GROUP
@@ -58,22 +35,41 @@ export function AboutSection() {
             >
               Zjistit více
             </button>
-          </motion.div>
+          </ScrollReveal>
           
-          <motion.div
-            ref={imageRef}
-            className="relative h-96 lg:h-auto overflow-hidden rounded-md"
-            variants={variants}
-            initial="hidden"
-            animate={imageInView ? "visible" : "hidden"}
+          <ScrollReveal 
+            direction="right" 
+            delay={0.4} 
+            duration={0.8}
           >
-            <div className="absolute w-full h-full transform -rotate-6 -translate-x-8 translate-y-8 border-4 border-primary rounded-md"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" 
-              alt="HS-GROUP tým" 
-              className="relative z-10 w-full h-96 lg:h-[500px] object-cover rounded-md"
-            />
-          </motion.div>
+            <div className="relative h-96 lg:h-auto overflow-hidden rounded-md">
+              {/* Animated border with parallax effect */}
+              <Parallax translateY={[5, -10]} className="absolute w-full h-full">
+                <motion.div 
+                  className="absolute w-full h-full transform -rotate-6 -translate-x-8 translate-y-8 border-4 border-primary rounded-md"
+                  animate={{
+                    rotate: [-6, -8, -6],
+                    translateX: [-32, -36, -32],
+                    translateY: [32, 36, 32]
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                />
+              </Parallax>
+              
+              {/* Main image with subtle parallax */}
+              <Parallax translateY={[-10, 10]} className="relative z-10">
+                <img 
+                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2053&q=80" 
+                  alt="HS-GROUP tým" 
+                  className="relative z-10 w-full h-96 lg:h-[500px] object-cover rounded-md"
+                />
+              </Parallax>
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
