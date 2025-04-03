@@ -217,7 +217,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <p className="font-bold mb-1">Telefon</p>
-                      <p>+420 123 456 789</p>
+                      <p><a href="tel:+420608187355" className="hover:text-primary transition-colors">+420 608 187 355</a></p>
                     </div>
                   </div>
                   
@@ -227,7 +227,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <p className="font-bold mb-1">Email</p>
-                      <p>info@hs-group.cz</p>
+                      <p><a href="mailto:Info@hsstavbygroup.cz" className="hover:text-primary transition-colors">Info@hsstavbygroup.cz</a></p>
                     </div>
                   </div>
                 </div>

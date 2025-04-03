@@ -13,12 +13,12 @@ export default function Contact() {
     {
       icon: <Phone className="w-12 h-12 text-primary" />,
       title: "Telefon",
-      info: "+420 222 333 444"
+      info: "+420 608 187 355"
     },
     {
       icon: <Mail className="w-12 h-12 text-primary" />,
       title: "Email",
-      info: "info@hs-group.cz"
+      info: "Info@hsstavbygroup.cz"
     },
     {
       icon: <Clock className="w-12 h-12 text-primary" />,
@@ -58,7 +58,21 @@ export default function Contact() {
                     {item.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-2 font-['Montserrat']">{item.title}</h3>
-                  <p className="font-['Open_Sans']">{item.info}</p>
+                  {item.title === "Telefon" ? (
+                    <p className="font-['Open_Sans']">
+                      <a href={`tel:${item.info.replace(/\s+/g, '')}`} className="hover:text-primary transition-colors">
+                        {item.info}
+                      </a>
+                    </p>
+                  ) : item.title === "Email" ? (
+                    <p className="font-['Open_Sans']">
+                      <a href={`mailto:${item.info}`} className="hover:text-primary transition-colors">
+                        {item.info}
+                      </a>
+                    </p>
+                  ) : (
+                    <p className="font-['Open_Sans']">{item.info}</p>
+                  )}
                 </div>
               </ScrollReveal>
             ))}
