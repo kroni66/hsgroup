@@ -1,51 +1,58 @@
 import { motion } from "framer-motion";
-import { Building, ChartLine, Handshake, Diamond, Percent, Coins } from "lucide-react";
+import { Building, ChartLine, Handshake, Diamond, Percent, Coins, Gavel, Calculator, FileText, FileQuestion, Home, HardHat } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 import { Parallax } from "react-scroll-parallax";
+import { Link } from "wouter";
 
-// Updated service data with additional styling parameters
+// Updated service data with additional styling parameters and links to dedicated pages
 const servicesData = [
   {
-    icon: <Building className="text-3xl" />,
-    title: "Nákup nemovitostí",
-    description: "Pomáháme klientům najít a získat ideální nemovitosti pro investice nebo bydlení.",
+    icon: <Gavel className="text-3xl" />,
+    title: "Právní služby HS",
+    description: "Kompletní právní servis pro firmy i jednotlivce v oblasti obchodního a nemovitostního práva.",
     delay: 0.1,
-    direction: "up" as const
+    direction: "up" as const,
+    link: "/pravni-sluzby"
   },
   {
-    icon: <ChartLine className="text-3xl" />,
-    title: "Investiční poradenství",
-    description: "Nabízíme expertní analýzy trhu a individuální investiční strategie pro maximalizaci výnosu.",
+    icon: <Calculator className="text-3xl" />,
+    title: "Správa účetnictví HS",
+    description: "Profesionální vedení účetnictví, zpracování daňových přiznání a finanční poradenství.",
     delay: 0.2,
-    direction: "up" as const
+    direction: "up" as const,
+    link: "/sprava-ucetnictvi"
   },
   {
-    icon: <Handshake className="text-3xl" />,
-    title: "Správa nemovitostí",
-    description: "Komplexní služby správy nemovitostí od pronájmu po údržbu a administrativu.",
+    icon: <FileText className="text-3xl" />,
+    title: "Daňové poradenství HS",
+    description: "Odborné daňové poradenství zaměřené na optimalizaci daňové povinnosti podnikatelů i firem.",
     delay: 0.3,
-    direction: "up" as const
+    direction: "up" as const,
+    link: "/danove-poradenstvi"
   },
   {
-    icon: <Diamond className="text-3xl" />,
-    title: "Development",
-    description: "Realizujeme developerské projekty od návrhu až po dokončení stavby a prodej.",
+    icon: <FileQuestion className="text-3xl" />,
+    title: "Likvidace firem HS",
+    description: "Komplexní zajištění procesu likvidace obchodních společností včetně právní podpory.",
     delay: 0.4,
-    direction: "up" as const
+    direction: "up" as const,
+    link: "/likvidace-firem"
   },
   {
-    icon: <Percent className="text-3xl" />,
-    title: "Financování",
-    description: "Zajišťujeme optimální financování pro vaše nemovitostní projekty a investice.",
+    icon: <Home className="text-3xl" />,
+    title: "Realitní agentura HS",
+    description: "Profesionální služby v oblasti prodeje, nákupu a pronájmu rezidenčních i komerčních nemovitostí.",
     delay: 0.5,
-    direction: "up" as const
+    direction: "up" as const,
+    link: "/realitni-agentura"
   },
   {
-    icon: <Coins className="text-3xl" />,
-    title: "Podílové vlastnictví",
-    description: "Specializujeme se na obchodování a správu spoluvlastnických podílů na nemovitostech.",
+    icon: <HardHat className="text-3xl" />,
+    title: "Stavební činnost HS",
+    description: "Realizace stavebních projektů od návrhu po dokončení, rekonstrukce a odborný stavební dozor.",
     delay: 0.6,
-    direction: "up" as const
+    direction: "up" as const,
+    link: "/stavebni-cinnost"
   },
 ];
 
@@ -118,24 +125,30 @@ export function ServicesSection() {
               duration={0.6}
               distance={40}
             >
-              <motion.div
-                className="bg-[#0A0A0A] p-8 rounded-md transition-all duration-300"
-                initial="rest"
-                whileHover="hover"
-                animate="rest"
-                variants={cardHoverAnimation}
-              >
-                <motion.div 
-                  className="text-primary mb-4"
-                  variants={iconAnimation}
+              <Link href={service.link} className="block">
+                <motion.div
+                  className="bg-[#0A0A0A] p-8 rounded-md transition-all duration-300 h-full cursor-pointer group"
+                  initial="rest"
+                  whileHover="hover"
+                  animate="rest"
+                  variants={cardHoverAnimation}
                 >
-                  {service.icon}
+                  <motion.div 
+                    className="text-primary mb-4"
+                    variants={iconAnimation}
+                  >
+                    {service.icon}
+                  </motion.div>
+                  <h3 className="text-xl font-bold mb-4 font-['Montserrat']">{service.title}</h3>
+                  <p className="text-white font-['Open_Sans']">
+                    {service.description}
+                  </p>
+                  <div className="mt-4 text-primary text-sm flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span>Zobrazit více</span>
+                    <span className="ml-1">→</span>
+                  </div>
                 </motion.div>
-                <h3 className="text-xl font-bold mb-4 font-['Montserrat']">{service.title}</h3>
-                <p className="text-white font-['Open_Sans']">
-                  {service.description}
-                </p>
-              </motion.div>
+              </Link>
             </ScrollReveal>
           ))}
         </div>

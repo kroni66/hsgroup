@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "wouter";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [location] = useLocation();
+  const isHomePage = location === "/";
 
   // Toggle mobile menu
   const toggleMenu = () => {
@@ -25,17 +28,19 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle click on navigation link
+  // Handle click on navigation link for home page scrolling
   const handleNavLinkClick = (id: string) => {
     // Close mobile menu if open
     if (isMenuOpen) {
       setIsMenuOpen(false);
     }
 
-    // Smooth scroll to section
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Smooth scroll to section only on home page
+    if (isHomePage) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
   };
 
@@ -47,10 +52,9 @@ export function Navbar() {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
-        <a 
-          href="#" 
+        <Link 
+          href="/" 
           className="flex items-center"
-          onClick={() => handleNavLinkClick("hero")}
         >
           <svg width="40" height="36" viewBox="0 0 50 45" xmlns="http://www.w3.org/2000/svg" className="mr-2">
             <path d="M10 5 L20 5 L25 40 L15 40 Z" fill="#ff0000" stroke="#000" strokeWidth="1.5" />
@@ -61,80 +65,101 @@ export function Navbar() {
           <span className="text-2xl font-bold text-white font-['Montserrat']">
             <span className="text-primary">HS</span>-GROUP
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6">
-          <a 
-            href="#services" 
-            className="text-white hover:text-primary transition-colors duration-300"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavLinkClick("services");
-            }}
-          >
-            Právní služby HS
-          </a>
-          <a 
-            href="#accounting" 
-            className="text-white hover:text-primary transition-colors duration-300"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavLinkClick("accounting");
-            }}
-          >
-            Správa účetnictví HS
-          </a>
-          <a 
-            href="#tax" 
-            className="text-white hover:text-primary transition-colors duration-300"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavLinkClick("tax");
-            }}
-          >
-            Daňové poradenství HS
-          </a>
-          <a 
-            href="#liquidation" 
-            className="text-white hover:text-primary transition-colors duration-300"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavLinkClick("liquidation");
-            }}
-          >
-            Likvidace firem HS
-          </a>
-          <a 
-            href="#realestate" 
-            className="text-white hover:text-primary transition-colors duration-300"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavLinkClick("realestate");
-            }}
-          >
-            Realitní agentura HS
-          </a>
-          <a 
-            href="#construction" 
-            className="text-white hover:text-primary transition-colors duration-300"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavLinkClick("construction");
-            }}
-          >
-            Stavební činnost HS
-          </a>
-          <a 
-            href="#contact" 
-            className="text-white hover:text-primary transition-colors duration-300"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavLinkClick("contact");
-            }}
-          >
-            Kontakt
-          </a>
+          {isHomePage ? (
+            <>
+              <Link 
+                href="/pravni-sluzby" 
+                className="text-white hover:text-primary transition-colors duration-300"
+              >
+                Právní služby HS
+              </Link>
+              <Link 
+                href="/sprava-ucetnictvi" 
+                className="text-white hover:text-primary transition-colors duration-300"
+              >
+                Správa účetnictví HS
+              </Link>
+              <Link 
+                href="/danove-poradenstvi" 
+                className="text-white hover:text-primary transition-colors duration-300"
+              >
+                Daňové poradenství HS
+              </Link>
+              <Link 
+                href="/likvidace-firem" 
+                className="text-white hover:text-primary transition-colors duration-300"
+              >
+                Likvidace firem HS
+              </Link>
+              <Link 
+                href="/realitni-agentura" 
+                className="text-white hover:text-primary transition-colors duration-300"
+              >
+                Realitní agentura HS
+              </Link>
+              <Link 
+                href="/stavebni-cinnost" 
+                className="text-white hover:text-primary transition-colors duration-300"
+              >
+                Stavební činnost HS
+              </Link>
+              <Link 
+                href="/kontakt" 
+                className="text-white hover:text-primary transition-colors duration-300"
+              >
+                Kontakt
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link 
+                href="/pravni-sluzby" 
+                className={`transition-colors duration-300 ${location === "/pravni-sluzby" ? "text-primary" : "text-white hover:text-primary"}`}
+              >
+                Právní služby HS
+              </Link>
+              <Link 
+                href="/sprava-ucetnictvi" 
+                className={`transition-colors duration-300 ${location === "/sprava-ucetnictvi" ? "text-primary" : "text-white hover:text-primary"}`}
+              >
+                Správa účetnictví HS
+              </Link>
+              <Link 
+                href="/danove-poradenstvi" 
+                className={`transition-colors duration-300 ${location === "/danove-poradenstvi" ? "text-primary" : "text-white hover:text-primary"}`}
+              >
+                Daňové poradenství HS
+              </Link>
+              <Link 
+                href="/likvidace-firem" 
+                className={`transition-colors duration-300 ${location === "/likvidace-firem" ? "text-primary" : "text-white hover:text-primary"}`}
+              >
+                Likvidace firem HS
+              </Link>
+              <Link 
+                href="/realitni-agentura" 
+                className={`transition-colors duration-300 ${location === "/realitni-agentura" ? "text-primary" : "text-white hover:text-primary"}`}
+              >
+                Realitní agentura HS
+              </Link>
+              <Link 
+                href="/stavebni-cinnost" 
+                className={`transition-colors duration-300 ${location === "/stavebni-cinnost" ? "text-primary" : "text-white hover:text-primary"}`}
+              >
+                Stavební činnost HS
+              </Link>
+              <Link 
+                href="/kontakt" 
+                className={`transition-colors duration-300 ${location === "/kontakt" ? "text-primary" : "text-white hover:text-primary"}`}
+              >
+                Kontakt
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -154,76 +179,55 @@ export function Navbar() {
             className="md:hidden bg-[#0A0A0A] absolute w-full py-4 px-4 overflow-hidden"
           >
             <div className="flex flex-col space-y-4">
-              <a 
-                href="#services" 
-                className="text-white hover:text-primary transition-colors duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavLinkClick("services");
-                }}
+              <Link 
+                href="/pravni-sluzby" 
+                className={`transition-colors duration-300 ${location === "/pravni-sluzby" ? "text-primary" : "text-white hover:text-primary"}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Právní služby HS
-              </a>
-              <a 
-                href="#accounting" 
-                className="text-white hover:text-primary transition-colors duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavLinkClick("accounting");
-                }}
+              </Link>
+              <Link 
+                href="/sprava-ucetnictvi" 
+                className={`transition-colors duration-300 ${location === "/sprava-ucetnictvi" ? "text-primary" : "text-white hover:text-primary"}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Správa účetnictví HS
-              </a>
-              <a 
-                href="#tax" 
-                className="text-white hover:text-primary transition-colors duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavLinkClick("tax");
-                }}
+              </Link>
+              <Link 
+                href="/danove-poradenstvi" 
+                className={`transition-colors duration-300 ${location === "/danove-poradenstvi" ? "text-primary" : "text-white hover:text-primary"}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Daňové poradenství HS
-              </a>
-              <a 
-                href="#liquidation" 
-                className="text-white hover:text-primary transition-colors duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavLinkClick("liquidation");
-                }}
+              </Link>
+              <Link 
+                href="/likvidace-firem" 
+                className={`transition-colors duration-300 ${location === "/likvidace-firem" ? "text-primary" : "text-white hover:text-primary"}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Likvidace firem HS
-              </a>
-              <a 
-                href="#realestate" 
-                className="text-white hover:text-primary transition-colors duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavLinkClick("realestate");
-                }}
+              </Link>
+              <Link 
+                href="/realitni-agentura" 
+                className={`transition-colors duration-300 ${location === "/realitni-agentura" ? "text-primary" : "text-white hover:text-primary"}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Realitní agentura HS
-              </a>
-              <a 
-                href="#construction" 
-                className="text-white hover:text-primary transition-colors duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavLinkClick("construction");
-                }}
+              </Link>
+              <Link 
+                href="/stavebni-cinnost" 
+                className={`transition-colors duration-300 ${location === "/stavebni-cinnost" ? "text-primary" : "text-white hover:text-primary"}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Stavební činnost HS
-              </a>
-              <a 
-                href="#contact" 
-                className="text-white hover:text-primary transition-colors duration-300"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavLinkClick("contact");
-                }}
+              </Link>
+              <Link 
+                href="/kontakt" 
+                className={`transition-colors duration-300 ${location === "/kontakt" ? "text-primary" : "text-white hover:text-primary"}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 Kontakt
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
