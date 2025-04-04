@@ -80,16 +80,14 @@ export function Navbar() {
             className="flex items-center group"
           >
             <div className="relative flex items-center justify-center mr-3">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-red-600/30 to-red-800/30 blur-sm"></div>
               <img 
                 src="/hs-logo-header.png"
                 alt="HS Group Logo" 
-                width="50" 
-                height="50"
-                className="transition-transform duration-500 group-hover:scale-110 z-10"
+                width="44" 
+                height="44"
+                className="transition-transform duration-500 group-hover:scale-110 rounded-full"
                 style={{ objectFit: 'contain' }}
               />
-              <div className="absolute -inset-1 bg-red-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             <div className="flex flex-col">
               <span className="text-2xl font-bold text-white font-['Montserrat']">
