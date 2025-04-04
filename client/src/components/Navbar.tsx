@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
-import hsLogoHeader from "../assets/hs-logo-header.png";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,13 +79,15 @@ export function Navbar() {
             href="/" 
             className="flex items-center group"
           >
-            <div className="relative">
+            <div className="relative flex items-center justify-center mr-3">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-red-600/30 to-red-800/30 blur-sm"></div>
               <img 
-                src={hsLogoHeader}
+                src="/hs-logo-header.png"
                 alt="HS Group Logo" 
-                width="44"
-                height="44"
-                className="mr-2 transition-transform duration-500 group-hover:scale-110"
+                width="50" 
+                height="50"
+                className="transition-transform duration-500 group-hover:scale-110 z-10"
+                style={{ objectFit: 'contain' }}
               />
               <div className="absolute -inset-1 bg-red-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
