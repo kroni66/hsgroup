@@ -47,8 +47,7 @@ export function Footer() {
   const additionalServices = [
     { name: "Realitní agentura HS", link: "/realitni-agentura", section: "realestate" },
     { name: "Stavební činnost HS", link: "/stavebni-cinnost", section: "construction" },
-    { name: "O společnosti", link: "/", section: "about" },
-    { name: "Portfolio projektů", link: "/", section: "portfolio" }
+    { name: "O společnosti", link: "/", section: "about" }
   ];
 
   // Contact info removed as requested
