@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, Send, ChevronRight, ExternalLink, ArrowUp } from "lucide-react";
+import { Send, ChevronRight, ExternalLink, ArrowUp } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { useEffect, useState } from "react";
 
@@ -51,11 +51,8 @@ export function Footer() {
     { name: "Portfolio projektů", link: "/", section: "portfolio" }
   ];
 
-  const contactInfo = [
-    { icon: <MapPin className="w-4 h-4" />, text: "Václavské náměstí 832/19, 110 00 Praha 1" },
-    { icon: <Phone className="w-4 h-4" />, text: "+420 608 187 355", link: "tel:+420608187355" },
-    { icon: <Mail className="w-4 h-4" />, text: "Info@hsstavbygroup.cz", link: "mailto:Info@hsstavbygroup.cz" }
-  ];
+  // Contact info removed as requested
+  const contactInfo: { icon: JSX.Element; text: string; link?: string }[] = [];
 
   return (
     <footer className="bg-black relative overflow-hidden">
@@ -90,52 +87,9 @@ export function Footer() {
                 </div>
               </Link>
               
-              <p className="text-gray-400 mb-6 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed">
                 Poskytujeme profesionální služby v oblasti právního poradenství, daňového poradenství, správy účetnictví, likvidace firem, realitní činnosti a stavební činnosti.
               </p>
-              
-              <div className="space-y-3 mb-8">
-                {contactInfo.map((item, i) => (
-                  <div key={i} className="flex items-start">
-                    <div className="text-red-500 mr-3 mt-1 flex-shrink-0">
-                      {item.icon}
-                    </div>
-                    <div className="text-sm text-gray-300">
-                      {item.link ? (
-                        <a href={item.link} className="hover:text-red-500 transition-colors">
-                          {item.text}
-                        </a>
-                      ) : (
-                        <span>{item.text}</span>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="flex space-x-3">
-                <a 
-                  href="#" 
-                  className="w-9 h-9 rounded-lg flex items-center justify-center bg-white/5 text-gray-400 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-4 h-4" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-9 h-9 rounded-lg flex items-center justify-center bg-white/5 text-gray-400 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-4 h-4" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-9 h-9 rounded-lg flex items-center justify-center bg-white/5 text-gray-400 hover:bg-red-500/20 hover:text-red-500 transition-all duration-300 border border-gray-800 hover:border-red-500/30"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-              </div>
             </div>
             
             {/* Navigation columns */}
