@@ -2,7 +2,7 @@ import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowDown, CheckCircle, ChevronRight } from "lucide-react";
-import hsLogoSvg from "../assets/hs-logo.svg";
+import businessIcon from "../assets/business-icon.svg";
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -269,10 +269,10 @@ export function Hero() {
                       {/* Decorative background glow */}
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-radial from-red-500/20 to-transparent rounded-full blur-3xl"></div>
                       
-                      {/* HS GROUP Logo SVG */}
+                      {/* Business Icon SVG */}
                       <motion.img 
-                        src={hsLogoSvg} 
-                        alt="HS GROUP Logo" 
+                        src={businessIcon} 
+                        alt="Business Icon" 
                         className="relative z-10 w-full h-full"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
