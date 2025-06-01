@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Mail, ChevronRight } from "lucide-react";
+import { Menu, X, Phone, Mail, ChevronRight, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isConstructionDropdownOpen, setIsConstructionDropdownOpen] = useState(false);
   const [location] = useLocation();
   const isHomePage = location === "/";
 
@@ -106,7 +107,46 @@ export function Navbar() {
                 <NavLink href="/danove-poradenstvi" isActive={false}>Daňové poradenství</NavLink>
                 <NavLink href="/likvidace-firem" isActive={false}>Likvidace firem</NavLink>
                 <NavLink href="/realitni-agentura" isActive={false}>Reality</NavLink>
-                <NavLink href="/stavebni-cinnost" isActive={false}>Stavební činnost</NavLink>
+                
+                {/* Construction Services Dropdown */}
+                <div className="relative group">
+                  <button
+                    className="text-white hover:text-red-400 px-3 py-2 rounded-md font-medium transition-colors duration-300 flex items-center space-x-1"
+                    onMouseEnter={() => setIsConstructionDropdownOpen(true)}
+                    onMouseLeave={() => setIsConstructionDropdownOpen(false)}
+                  >
+                    <span>Stavební činnost HS</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {isConstructionDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 mt-1 bg-black/95 backdrop-blur-sm border border-gray-800 rounded-md shadow-xl min-w-[200px] z-50"
+                        onMouseEnter={() => setIsConstructionDropdownOpen(true)}
+                        onMouseLeave={() => setIsConstructionDropdownOpen(false)}
+                      >
+                        <Link
+                          href="/stavebni-cinnost"
+                          className="block px-4 py-3 text-white hover:text-red-400 hover:bg-white/5 transition-colors duration-300 border-b border-gray-800 last:border-b-0"
+                        >
+                          Stavební činnost
+                        </Link>
+                        <Link
+                          href="/hs-partner"
+                          className="block px-4 py-3 text-white hover:text-red-400 hover:bg-white/5 transition-colors duration-300 border-b border-gray-800 last:border-b-0"
+                        >
+                          HS Partner
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                
                 <NavLink href="/kontakt" isActive={false}>Kontakt</NavLink>
               </>
             ) : (
@@ -116,7 +156,58 @@ export function Navbar() {
                 <NavLink href="/danove-poradenstvi" isActive={location === "/danove-poradenstvi"}>Daňové poradenství</NavLink>
                 <NavLink href="/likvidace-firem" isActive={location === "/likvidace-firem"}>Likvidace firem</NavLink>
                 <NavLink href="/realitni-agentura" isActive={location === "/realitni-agentura"}>Reality</NavLink>
-                <NavLink href="/stavebni-cinnost" isActive={location === "/stavebni-cinnost"}>Stavební činnost</NavLink>
+                
+                {/* Construction Services Dropdown */}
+                <div className="relative group">
+                  <button
+                    className={`px-3 py-2 rounded-md font-medium transition-colors duration-300 flex items-center space-x-1 ${
+                      location === "/stavebni-cinnost" || location === "/hs-partner"
+                        ? "text-red-400 bg-white/10"
+                        : "text-white hover:text-red-400"
+                    }`}
+                    onMouseEnter={() => setIsConstructionDropdownOpen(true)}
+                    onMouseLeave={() => setIsConstructionDropdownOpen(false)}
+                  >
+                    <span>Stavební činnost HS</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {isConstructionDropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 mt-1 bg-black/95 backdrop-blur-sm border border-gray-800 rounded-md shadow-xl min-w-[200px] z-50"
+                        onMouseEnter={() => setIsConstructionDropdownOpen(true)}
+                        onMouseLeave={() => setIsConstructionDropdownOpen(false)}
+                      >
+                        <Link
+                          href="/stavebni-cinnost"
+                          className={`block px-4 py-3 transition-colors duration-300 border-b border-gray-800 last:border-b-0 ${
+                            location === "/stavebni-cinnost"
+                              ? "text-red-400 bg-white/5"
+                              : "text-white hover:text-red-400 hover:bg-white/5"
+                          }`}
+                        >
+                          Stavební činnost
+                        </Link>
+                        <Link
+                          href="/hs-partner"
+                          className={`block px-4 py-3 transition-colors duration-300 border-b border-gray-800 last:border-b-0 ${
+                            location === "/hs-partner"
+                              ? "text-red-400 bg-white/5"
+                              : "text-white hover:text-red-400 hover:bg-white/5"
+                          }`}
+                        >
+                          HS Partner
+                        </Link>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                
                 <NavLink href="/kontakt" isActive={location === "/kontakt"}>Kontakt</NavLink>
               </>
             )}
@@ -193,6 +284,13 @@ export function Navbar() {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Stavební činnost HS
+                  </MobileNavLink>
+                  <MobileNavLink 
+                    href="/hs-partner" 
+                    isActive={location === "/hs-partner"}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    HS Partner
                   </MobileNavLink>
                   <MobileNavLink 
                     href="/kontakt" 

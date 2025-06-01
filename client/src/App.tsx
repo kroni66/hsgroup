@@ -10,6 +10,7 @@ import TaxServices from "@/pages/TaxServices";
 import LiquidationServices from "@/pages/LiquidationServices";
 import RealEstateServices from "@/pages/RealEstateServices";
 import ConstructionServices from "@/pages/ConstructionServices";
+import HSPartner from "@/pages/HSPartner";
 import Contact from "@/pages/Contact";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { Preloader } from "@/components/Preloader";
@@ -24,6 +25,7 @@ function Router() {
       <Route path="/likvidace-firem" component={LiquidationServices} />
       <Route path="/realitni-agentura" component={RealEstateServices} />
       <Route path="/stavebni-cinnost" component={ConstructionServices} />
+      <Route path="/hs-partner" component={HSPartner} />
       <Route path="/kontakt" component={Contact} />
       {/* Fallback to 404 */}
       <Route component={NotFound} />
