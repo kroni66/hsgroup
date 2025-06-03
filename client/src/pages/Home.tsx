@@ -4,7 +4,6 @@ import { StatsCounter } from "@/components/StatsCounter";
 import { AboutSection } from "@/components/AboutSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { CTASection } from "@/components/CTASection";
-import { PortfolioSection } from "@/components/PortfolioSection";
 import { HistorySection } from "@/components/HistorySection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
@@ -19,7 +18,6 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <CTASection />
-      <PortfolioSection />
       <HistorySection />
       <TestimonialsSection />
       <ContactSection />
