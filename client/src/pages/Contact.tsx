@@ -8,7 +8,7 @@ export default function Contact() {
     {
       icon: <MapPin className="w-12 h-12 text-primary" />,
       title: "Adresa",
-      info: "Václavské náměstí 832/19, 110 00 Praha 1"
+      info: "Příčná 1892/4, Nové Město (Praha 1), 110 00 Praha"
     },
     {
       icon: <Phone className="w-12 h-12 text-primary" />,

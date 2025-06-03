@@ -65,8 +65,8 @@ export function ContactSection() {
     {
       icon: <MapPin className="w-5 h-5" />,
       title: "Adresa",
-      content: "Václavské náměstí 832/19, 110 00 Praha 1",
-      link: "https://maps.google.com/?q=Václavské+náměstí+832/19+Praha",
+      content: "Příčná 1892/4, Nové Město (Praha 1), 110 00 Praha",
+      link: "https://maps.google.com/?q=Příčná+1892/4+Nové+Město+Praha",
       linkText: "Zobrazit na mapě"
     },
     {
