@@ -10,16 +10,6 @@ import { Link } from "wouter";
 // Updated service data with additional styling parameters, badges and links to dedicated pages
 const servicesData = [
   {
-    icon: <Gavel className="w-6 h-6" />,
-    title: "Právní služby HS",
-    description: "Kompletní právní servis pro firmy i jednotlivce v oblasti obchodního a nemovitostního práva.",
-    delay: 0.1,
-    direction: "up" as const,
-    link: "/pravni-sluzby",
-    features: ["Smluvní dokumentace", "Právní audit", "Obchodní spory"],
-    badge: "Expertní poradenství"
-  },
-  {
     icon: <Calculator className="w-6 h-6" />,
     title: "Správa účetnictví HS",
     description: "Profesionální vedení účetnictví, zpracování daňových přiznání a finanční poradenství.",
@@ -42,7 +32,7 @@ const servicesData = [
   {
     icon: <FileQuestion className="w-6 h-6" />,
     title: "Likvidace firem HS",
-    description: "Komplexní zajištění procesu likvidace obchodních společností včetně právní podpory.",
+    description: "Komplexní zajištění procesu likvidace obchodních společností včetně odborné podpory.",
     delay: 0.4,
     direction: "up" as const,
     link: "/likvidace-firem",

@@ -103,7 +103,7 @@ export default function AccountingServices() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">✓</span>
-                  <span>Propojení s daňovým poradenstvím a právními službami</span>
+                  <span>Propojení s daňovým poradenstvím</span>
                 </li>
               </ul>
             </div>

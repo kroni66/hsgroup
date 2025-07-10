@@ -21,7 +21,7 @@ const testimonialsData = [
     company: "Restaurant Group Praha"
   },
   {
-    quote: "Při zakládání stavební společnosti jsem potřeboval komplexní právní a daňové poradenství. HS-GROUP mi poskytla vynikající služby, které zahrnují vše od založení firmy až po průběžné daňové konzultace. Jejich tým odborníků vždy reaguje promptně a řeší všechny záležitosti profesionálně.",
+      quote: "Při zakládání stavební společnosti jsem potřeboval komplexní daňové poradenství. HS-GROUP mi poskytla vynikající služby, které zahrnují vše od založení firmy až po průběžné daňové konzultace. Jejich tým odborníků vždy reaguje promptně a řeší všechny záležitosti profesionálně.",
     author: "Bc. Martin Svoboda",
     role: "Jednatel",
     rating: 5,

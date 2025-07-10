@@ -101,7 +101,6 @@ export function Navbar() {
           <div className="hidden lg:flex space-x-1">
             {isHomePage ? (
               <>
-                <NavLink href="/pravni-sluzby" isActive={false}>Právní služby</NavLink>
                 <NavLink href="/sprava-ucetnictvi" isActive={false}>Účetnictví</NavLink>
                 <NavLink href="/danove-poradenstvi" isActive={false}>Daňové poradenství</NavLink>
                 <NavLink href="/likvidace-firem" isActive={false}>Likvidace firem</NavLink>
@@ -112,7 +111,6 @@ export function Navbar() {
               </>
             ) : (
               <>
-                <NavLink href="/pravni-sluzby" isActive={location === "/pravni-sluzby"}>Právní služby</NavLink>
                 <NavLink href="/sprava-ucetnictvi" isActive={location === "/sprava-ucetnictvi"}>Účetnictví</NavLink>
                 <NavLink href="/danove-poradenstvi" isActive={location === "/danove-poradenstvi"}>Daňové poradenství</NavLink>
                 <NavLink href="/likvidace-firem" isActive={location === "/likvidace-firem"}>Likvidace firem</NavLink>
@@ -154,13 +152,6 @@ export function Navbar() {
             >
               <div className="container mx-auto px-4 py-4">
                 <div className="grid grid-cols-1 gap-1">
-                  <MobileNavLink 
-                    href="/pravni-sluzby" 
-                    isActive={location === "/pravni-sluzby"}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Právní služby HS
-                  </MobileNavLink>
                   <MobileNavLink 
                     href="/sprava-ucetnictvi" 
                     isActive={location === "/sprava-ucetnictvi"}

@@ -37,7 +37,6 @@ export function Footer() {
 
   // Footer navigation items
   const mainServices = [
-    { name: "Právní služby HS", link: "/pravni-sluzby", section: "services" },
     { name: "Správa účetnictví HS", link: "/sprava-ucetnictvi", section: "accounting" },
     { name: "Daňové poradenství HS", link: "/danove-poradenstvi", section: "tax" },
     { name: "Likvidace firem HS", link: "/likvidace-firem", section: "liquidation" },
@@ -87,7 +86,7 @@ export function Footer() {
               </Link>
               
               <p className="text-gray-400 text-sm leading-relaxed">
-                Poskytujeme profesionální služby v oblasti právního poradenství, daňového poradenství, správy účetnictví, likvidace firem, realitní činnosti a stavební činnosti.
+                Poskytujeme profesionální služby v oblasti daňového poradenství, správy účetnictví, likvidace firem, realitní činnosti a stavební činnosti.
               </p>
             </div>
             
@@ -150,7 +149,7 @@ export function Footer() {
             <div className="lg:col-span-4">
               <h4 className="text-white font-medium text-base mb-5">Newsletter</h4>
               <p className="text-gray-400 mb-4 text-sm">
-                Přihlaste se k odběru newsletteru a získejte nejnovější informace a tipy z oblasti právních, daňových a podnikatelských služeb.
+                Přihlaste se k odběru newsletteru a získejte nejnovější informace a tipy z oblasti daňových a podnikatelských služeb.
               </p>
               
               <form className="mb-4">

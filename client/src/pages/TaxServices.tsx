@@ -103,7 +103,7 @@ export default function TaxServices() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">✓</span>
-                  <span>Propojení s účetními a právními službami pro celostní řešení</span>
+                  <span>Propojení s účetními službami pro celostní řešení</span>
                 </li>
               </ul>
             </div>

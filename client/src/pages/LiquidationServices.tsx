@@ -32,8 +32,8 @@ export default function LiquidationServices() {
     },
     {
       icon: <ShieldCheck className="w-12 h-12 text-primary" />,
-      title: "Právní ochrana",
-      description: "Ochrana před riziky spojenými s likvidací a zajištění souladu s právními předpisy."
+      title: "Ochrana před riziky",
+      description: "Ochrana před riziky spojenými s likvidací a zajištění souladu s předpisy."
     }
   ];
 
@@ -78,7 +78,7 @@ export default function LiquidationServices() {
           </h2>
           <p className="text-lg mb-6 font-['Open_Sans'] leading-relaxed">
             HS-GROUP nabízí kompletní služby v oblasti likvidace obchodních společností. Proces likvidace 
-            je složitý právní úkon, který vyžaduje odborné znalosti a zkušenosti. Náš tým specialistů 
+            je složitý úkon, který vyžaduje odborné znalosti a zkušenosti. Náš tým specialistů 
             zajistí hladký průběh celého procesu od analýzy stavu společnosti až po výmaz z obchodního rejstříku.
           </p>
           <p className="text-lg mb-8 font-['Open_Sans'] leading-relaxed">
@@ -154,7 +154,7 @@ export default function LiquidationServices() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">✓</span>
-                  <span>Propojení s právními a účetními službami pro komplexní řešení</span>
+                  <span>Propojení s účetními službami pro komplexní řešení</span>
                 </li>
               </ul>
             </div>

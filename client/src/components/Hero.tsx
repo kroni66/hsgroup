@@ -202,7 +202,7 @@ export function Hero() {
                   className="text-xl md:text-2xl mb-6 text-gray-300 leading-relaxed"
                   variants={childVariants}
                 >
-                  Komplexní řešení v oblasti právních, daňových a podnikatelských služeb
+                  Komplexní řešení v oblasti daňových a podnikatelských služeb
                 </motion.h2>
                 
                 {/* Features list */}

@@ -4,7 +4,6 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
-import LegalServices from "@/pages/LegalServices";
 import AccountingServices from "@/pages/AccountingServices";
 import TaxServices from "@/pages/TaxServices";
 import LiquidationServices from "@/pages/LiquidationServices";
@@ -19,7 +18,6 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/pravni-sluzby" component={LegalServices} />
       <Route path="/sprava-ucetnictvi" component={AccountingServices} />
       <Route path="/danove-poradenstvi" component={TaxServices} />
       <Route path="/likvidace-firem" component={LiquidationServices} />

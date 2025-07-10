@@ -156,7 +156,7 @@ export default function ConstructionServices() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">✓</span>
-                  <span>Propojení s dalšími službami - právní, realitní a finanční poradenství</span>
+                  <span>Propojení s dalšími službami - realitní a finanční poradenství</span>
                 </li>
               </ul>
             </div>

@@ -15,7 +15,7 @@ export default function RealEstateServices() {
     {
       icon: <Building className="w-12 h-12 text-primary" />,
       title: "Pronájem nemovitostí",
-      description: "Zprostředkování pronájmů s důkladným prověřením nájemníků a zajištěním právní ochrany."
+      description: "Zprostředkování pronájmů s důkladným prověřením nájemníků a zajištěním kompletní podpory."
     },
     {
       icon: <Search className="w-12 h-12 text-primary" />,
@@ -24,8 +24,8 @@ export default function RealEstateServices() {
     },
     {
       icon: <PenTool className="w-12 h-12 text-primary" />,
-      title: "Právní servis",
-      description: "Kompletní právní servis spojený s realitními transakcemi včetně přípravy smluv a zastupování."
+      title: "Dokumentace a poradenství",
+      description: "Kompletní služby spojené s realitními transakcemi včetně přípravy dokumentace a poradenství."
     },
     {
       icon: <BarChart3 className="w-12 h-12 text-primary" />,
@@ -81,7 +81,7 @@ export default function RealEstateServices() {
           <p className="text-lg mb-8 font-['Open_Sans'] leading-relaxed">
             Naším cílem je poskytovat komplexní služby pokrývající celý proces realitní transakce - 
             od prvotní konzultace, přes marketing nemovitosti a jednání s potenciálními zájemci 
-            až po právní servis a úspěšné dokončení obchodu.
+            až po kompletní servis a úspěšné dokončení obchodu.
           </p>
         </div>
 
@@ -153,7 +153,7 @@ export default function RealEstateServices() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">✓</span>
-                  <span>Právní servis zajištěný vlastním právním oddělením</span>
+                  <span>Kompletní servis zajištěný vlastním odborným týmem</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary mr-2">✓</span>
