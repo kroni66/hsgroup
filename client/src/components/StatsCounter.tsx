@@ -4,10 +4,9 @@ import { motion } from "framer-motion";
 
 // Stats data
 const statsData = [
-  { value: 5600, suffix: "+", label: "Úspěšných investic" },
-  { value: 120, suffix: "+", label: "Nemovitostí ve správě" },
-  { value: 8, suffix: " let", label: "Zkušeností" },
-  { value: 980, suffix: " M", label: "Hodnota portfolia" }
+  { value: 168, suffix: "", label: "provedených staveb" },
+  { value: 10, suffix: " let", label: "zkušenosti" },
+  { value: 100, suffix: "+ milionů", label: "roční obrat" }
 ];
 
 // Component for a single counter
@@ -66,7 +65,7 @@ export function StatsCounter() {
   return (
     <section className="py-20 bg-[#121212]">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
           {statsData.map((stat, index) => (
             <Counter 
               key={index} 
