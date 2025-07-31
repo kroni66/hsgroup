@@ -40,26 +40,7 @@ export default function Home() {
     }
   ];
 
-  const projects = [
-    {
-      image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "Bytový komplex Praha 5",
-      category: "Rezidenční výstavba",
-      description: "Realizace moderního bytového komplexu s 48 bytovými jednotkami a podzemním parkováním."
-    },
-    {
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      title: "Administrativní centrum Brno",
-      category: "Komerční objekty",
-      description: "Výstavba moderního administrativního centra s kancelářskými prostory a obchodní pasáží."
-    },
-    {
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2127&q=80",
-      title: "Revitalizace historické vily",
-      category: "Rekonstrukce",
-      description: "Komplexní rekonstrukce historické vily s důrazem na zachování původních architektonických prvků."
-    }
-  ];
+
 
   return (
     <div className="overflow-x-hidden">
@@ -106,37 +87,7 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-16">
-              <ScrollReveal direction="up">
-                <h2 className="text-3xl font-bold mb-10 font-['Montserrat'] text-center text-white">
-                  Naše <span className="text-primary">realizované projekty</span>
-                </h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {projects.map((project, index) => (
-                    <div 
-                      key={index} 
-                      className="overflow-hidden rounded-lg group"
-                    >
-                      <div className="relative h-64">
-                        <div 
-                          className="absolute inset-0 bg-center bg-cover transition-all duration-500 group-hover:scale-105"
-                          style={{ backgroundImage: `url('${project.image}')` }}
-                        />
-                        <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        <div className="absolute bottom-0 left-0 right-0 p-4">
-                          <div className="bg-black bg-opacity-80 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                            <span className="text-primary text-sm">{project.category}</span>
-                            <h3 className="text-xl font-bold font-['Montserrat'] text-white">{project.title}</h3>
-                            <p className="text-sm text-gray-300 mt-2 font-['Open_Sans']">{project.description}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </ScrollReveal>
-            </div>
+
 
             <div className="mt-12">
               <ScrollReveal direction="up">
