@@ -105,7 +105,6 @@ export function Navbar() {
                 <NavLink href="/danove-poradenstvi" isActive={false}>Daňové poradenství</NavLink>
                 <NavLink href="/likvidace-firem" isActive={false}>Likvidace firem</NavLink>
                 <NavLink href="/realitni-agentura" isActive={false}>Reality</NavLink>
-                <NavLink href="/stavebni-cinnost" isActive={false}>Stavební činnost</NavLink>
                 <NavLink href="/hs-partner" isActive={false}>HS Partner</NavLink>
                 <NavLink href="/kontakt" isActive={false}>Kontakt</NavLink>
               </>
@@ -115,7 +114,6 @@ export function Navbar() {
                 <NavLink href="/danove-poradenstvi" isActive={location === "/danove-poradenstvi"}>Daňové poradenství</NavLink>
                 <NavLink href="/likvidace-firem" isActive={location === "/likvidace-firem"}>Likvidace firem</NavLink>
                 <NavLink href="/realitni-agentura" isActive={location === "/realitni-agentura"}>Reality</NavLink>
-                <NavLink href="/stavebni-cinnost" isActive={location === "/stavebni-cinnost"}>Stavební činnost</NavLink>
                 <NavLink href="/hs-partner" isActive={location === "/hs-partner"}>HS Partner</NavLink>
                 <NavLink href="/kontakt" isActive={location === "/kontakt"}>Kontakt</NavLink>
               </>
@@ -179,13 +177,6 @@ export function Navbar() {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Realitní agentura HS
-                  </MobileNavLink>
-                  <MobileNavLink 
-                    href="/stavebni-cinnost" 
-                    isActive={location === "/stavebni-cinnost"}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Stavební činnost HS
                   </MobileNavLink>
                   <MobileNavLink 
                     href="/hs-partner" 
