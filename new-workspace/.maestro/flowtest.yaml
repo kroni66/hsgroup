@@ -1,0 +1,10 @@
+appId: com.neco.neco
+---
+- launchApp:
+    clearState: true
+- tapOn:
+    text: Chrome
+    repeat: 3
+    delay: 500
+    retryTapIfNoChange: false
+    waitToSettleTimeoutMs: 500

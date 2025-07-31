@@ -1,0 +1,9 @@
+url: https://darksalon.cz
+---
+- launchApp
+- tapOn:
+    text: Rezervovat
+    repeat: 3
+    delay: 500
+    retryTapIfNoChange: false
+    waitToSettleTimeoutMs: 500

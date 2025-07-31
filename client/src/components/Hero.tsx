@@ -1,8 +1,7 @@
 import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowDown, CheckCircle, ChevronRight } from "lucide-react";
-import businessIcon from "../assets/business-icon.svg";
+import { ArrowDown, CheckCircle, ChevronRight, Building2, Hammer, HardHat } from "lucide-react";
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -81,7 +80,7 @@ export function Hero() {
           <motion.div 
             className="absolute inset-0 bg-center bg-cover"
             style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=100')",
+              backgroundImage: "url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=100')",
               scale: bgScale
             }}
           />
@@ -185,7 +184,7 @@ export function Hero() {
                   variants={childVariants}
                 >
                   <span className="h-px w-5 bg-red-500 mr-2.5"></span>
-                  <span className="uppercase text-sm tracking-wider font-semibold">Profesionální služby</span>
+                  <span className="uppercase text-sm tracking-wider font-semibold">Stavební společnost</span>
                 </motion.div>
                 
                 {/* Main title with gradient highlight */}
@@ -193,8 +192,8 @@ export function Hero() {
                   className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 font-['Montserrat'] leading-tight"
                   variants={childVariants}
                 >
-                  <span className="text-white">Váš partner pro </span>
-                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-600">úspěšné podnikání</span>
+                  <span className="text-white">Stavíme vaše </span>
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-red-600">sny a budoucnost</span>
                 </motion.h1>
                 
                 {/* Subtitle */}
@@ -202,7 +201,7 @@ export function Hero() {
                   className="text-xl md:text-2xl mb-6 text-gray-300 leading-relaxed"
                   variants={childVariants}
                 >
-                  Komplexní řešení v oblasti daňových a podnikatelských služeb
+                  Komplexní stavební služby od návrhu až po dokončení
                 </motion.h2>
                 
                 {/* Features list */}
@@ -214,22 +213,22 @@ export function Hero() {
                     variants={featureItemVariants}
                     className="flex items-center text-gray-200"
                   >
-                    <CheckCircle className="h-5 w-5 mr-2 text-red-500 flex-shrink-0" />
-                    <span>Profesionalita a důvěra</span>
+                    <Building2 className="h-5 w-5 mr-2 text-red-500 flex-shrink-0" />
+                    <span>Rodinné domy a bytové komplexy</span>
                   </motion.li>
                   <motion.li 
                     variants={featureItemVariants}
                     className="flex items-center text-gray-200"
                   >
-                    <CheckCircle className="h-5 w-5 mr-2 text-red-500 flex-shrink-0" />
-                    <span>Komplexní přístup k vašemu podnikání</span>
+                    <Hammer className="h-5 w-5 mr-2 text-red-500 flex-shrink-0" />
+                    <span>Rekonstrukce a modernizace</span>
                   </motion.li>
                   <motion.li 
                     variants={featureItemVariants}
                     className="flex items-center text-gray-200"
                   >
-                    <CheckCircle className="h-5 w-5 mr-2 text-red-500 flex-shrink-0" />
-                    <span>Zkušení odborníci ve všech oblastech</span>
+                    <HardHat className="h-5 w-5 mr-2 text-red-500 flex-shrink-0" />
+                    <span>Profesionální tým s dlouholetými zkušenostmi</span>
                   </motion.li>
                 </motion.ul>
                 
@@ -242,7 +241,7 @@ export function Hero() {
                     onClick={() => handleScrollTo("services")}
                     className="inline-block bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-red-500 text-white py-3.5 px-7 rounded-md font-medium transition-all duration-300 text-center shadow-lg shadow-red-600/20 flex items-center justify-center gap-2 group"
                   >
-                    <span>Naše služby</span>
+                    <span>Naše projekty</span>
                     <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </button>
                   
@@ -250,7 +249,7 @@ export function Hero() {
                     onClick={() => handleScrollTo("contact")}
                     className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white py-3.5 px-7 rounded-md font-medium hover:bg-white/15 transition-all duration-300 text-center flex items-center justify-center gap-2"
                   >
-                    Kontaktujte nás
+                    Získat nabídku
                   </button>
                 </motion.div>
               </motion.div>
@@ -264,20 +263,40 @@ export function Hero() {
                   transition={{ duration: 0.7, delay: 0.3 }}
                 >
                   <div className="w-full h-full flex items-center justify-center">
-                    {/* Business Illustration SVG */}
+                    {/* Construction Illustration */}
                     <div className="relative w-[400px] h-[400px]">
                       {/* Decorative background glow */}
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-radial from-red-500/20 to-transparent rounded-full blur-3xl"></div>
                       
-                      {/* Business Icon SVG */}
-                      <motion.img 
-                        src={businessIcon} 
-                        alt="Business Icon" 
-                        className="relative z-10 w-full h-full"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-                      />
+                      {/* Construction Icons */}
+                      <div className="relative z-10 w-full h-full flex items-center justify-center">
+                        <motion.div 
+                          className="relative"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                        >
+                          {/* Main building icon */}
+                          <Building2 className="w-48 h-48 text-white/80" />
+                          
+                          {/* Floating construction elements */}
+                          <motion.div
+                            className="absolute -top-8 -right-8"
+                            animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                          >
+                            <HardHat className="w-16 h-16 text-red-500" />
+                          </motion.div>
+                          
+                          <motion.div
+                            className="absolute -bottom-6 -left-6"
+                            animate={{ y: [0, 8, 0], rotate: [0, -3, 0] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                          >
+                            <Hammer className="w-12 h-12 text-red-400" />
+                          </motion.div>
+                        </motion.div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
